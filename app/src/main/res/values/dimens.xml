@@ -1,0 +1,13 @@
+<resources>
+    <!--此文件添加全局字号、间隔、长宽等信息-->
+
+    <!--登录界面-->
+    <dimen name="login_app_name">20sp</dimen>
+    <dimen name="login_pop_menu">18sp</dimen>
+
+    <!--注册界面-->
+    <dimen name="sign_up_title">16sp</dimen>
+    <dimen name="sign_up_phone">16sp</dimen>
+    <dimen name="sign_up_text_height">32dp</dimen>
+    <dimen name="sign_up_text_width">64dp</dimen>
+</resources>

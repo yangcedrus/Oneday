@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.SignUpFragment2">
+
+    <TextView
+        android:id="@+id/sign_up_tv_psw"
+        android:layout_width="@dimen/sign_up_text_width"
+        android:layout_height="@dimen/sign_up_text_height"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/sign_up_psw1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sign_up_barrier2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/sign_up_tv_check"
+        android:layout_width="@dimen/sign_up_text_width"
+        android:layout_height="@dimen/sign_up_text_height"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/sign_up_psw2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_psw"
+        app:layout_constraintStart_toStartOf="@+id/sign_up_tv_psw"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_psw"
+        app:layout_constraintVertical_bias="0" />
+
+
+    <android.support.constraint.Barrier
+        android:id="@+id/sign_up_barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="sign_up_tv_psw,sign_up_tv_check"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_psw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sign_up_barrier2">
+
+        <EditText
+            android:id="@+id/sign_up_et_psw"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <ToggleButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/psw_on_off"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:textOff=""
+            android:textOn="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_check"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sign_up_barrier2">
+
+        <EditText
+            android:id="@+id/sign_up_et_check"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <ToggleButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/psw_on_off"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:textOff=""
+            android:textOn="" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sign_up_psw_ok"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/sign_up_complete"
+        android:background="@drawable/shape_yellow_radius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintWidth_percent="0.7"/>
+
+
+</android.support.constraint.ConstraintLayout>
