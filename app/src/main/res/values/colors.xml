@@ -6,4 +6,6 @@
 
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FACC01</color>
+
+    <color name="guildline">#000000</color>
 </resources>

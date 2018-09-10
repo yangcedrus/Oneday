@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.BillOverviewActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/bill_overview_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:fitsSystemWindows="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/bill_overview"
+            android:textSize="@dimen/sign_up_title" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/bill_overview_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="2018年"
+        android:textSize="@dimen/little_size"
+        app:layout_constraintEnd_toStartOf="@+id/bill_view1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bill_overview_toolbar" />
+
+    <TextView
+        android:id="@+id/bill_overview_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="9月"
+        android:textSize="@dimen/big_size"
+        app:layout_constraintEnd_toEndOf="@+id/bill_overview_year"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/bill_overview_year"
+        app:layout_constraintTop_toBottomOf="@+id/bill_overview_year" />
+
+
+    <View
+        android:id="@+id/bill_view1"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/guildline"
+        app:layout_constraintBottom_toBottomOf="@+id/bill_overview_month"
+        app:layout_constraintEnd_toStartOf="@+id/bill_view2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bill_overview_year" />
+
+    <View
+        android:id="@+id/bill_view2"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/guildline"
+        app:layout_constraintBottom_toBottomOf="@+id/bill_view1"
+        app:layout_constraintTop_toTopOf="@+id/bill_view1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/bill_view1"
+        app:layout_constraintVertical_bias="1.0"/>
+
+    <TextView
+        android:id="@+id/bill_overview_tv_income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="收入"
+        app:layout_constraintEnd_toStartOf="@+id/bill_view2"
+        app:layout_constraintStart_toEndOf="@+id/bill_view1"
+        app:layout_constraintTop_toTopOf="@+id/bill_overview_year" />
+
+    <TextView
+        android:id="@+id/bill_overview_et_income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/bill_overview_month"
+        app:layout_constraintEnd_toEndOf="@+id/bill_overview_tv_income"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/bill_overview_tv_income"
+        app:layout_constraintTop_toBottomOf="@+id/bill_overview_tv_income" />
+
+    <TextView
+        android:id="@+id/bill_overview_tv_expenditure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="支出"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bill_view2"
+        app:layout_constraintTop_toTopOf="@+id/bill_overview_tv_income" />
+
+    <TextView
+        android:id="@+id/bill_overview_et_expenditure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/bill_overview_et_income"
+        app:layout_constraintEnd_toEndOf="@+id/bill_overview_tv_expenditure"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/bill_overview_tv_expenditure"
+        app:layout_constraintTop_toBottomOf="@+id/bill_overview_tv_expenditure" />
+
+    <View
+        android:id="@+id/bill_view3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/guildline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_view1" />
+
+    <View
+        android:id="@+id/bill_view4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/guildline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bill_view3" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/bill_pie_chart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bill_overview_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_view4" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bill_overview_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bill_pie_chart" />
+
+</android.support.constraint.ConstraintLayout>

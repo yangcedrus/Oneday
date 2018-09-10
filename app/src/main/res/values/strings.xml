@@ -8,7 +8,7 @@
     <string name="login_pop_cancel">取消</string>
 
     <!--注册页面-->
-    <string name="sign_up_title">注册</string>
+    <string name="sign_up">注册</string>
     <string name="sign_up_phone">手机号</string>
     <string name="sign_up_verify">验证码</string>
     <string name="sign_up_send_code">获取验证码</string>
@@ -16,6 +16,10 @@
 
     <string name="sign_up_psw1">密码</string>
     <string name="sign_up_psw2">确认密码</string>
-
     <string name="sign_up_complete">注册完成</string>
+
+    <!--账单页面-->
+    <string name="bill_overview">账单</string>
+    <string name="income">收入</string>
+    <string name="expenditure">支出</string>
 </resources>

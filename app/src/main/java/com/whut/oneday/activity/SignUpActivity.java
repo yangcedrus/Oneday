@@ -26,7 +26,7 @@ import butterknife.InjectView;
 
 public class SignUpActivity extends BaseActivity {
 
-    @InjectView(R.id.toolbar)
+    @InjectView(R.id.sign_up_toolbar)
     Toolbar toolbar;
     @InjectView(R.id.sign_up_content)
     FrameLayout signUpContent;

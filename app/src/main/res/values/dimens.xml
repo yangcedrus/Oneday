@@ -1,6 +1,9 @@
 <resources>
     <!--此文件添加全局字号、间隔、长宽等信息-->
 
+    <dimen name="little_size">16sp</dimen>
+    <dimen name="big_size">24sp</dimen>
+
     <!--登录界面-->
     <dimen name="login_app_name">20sp</dimen>
     <dimen name="login_pop_menu">18sp</dimen>

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.whut.oneday.activity.BillOverviewActivity;
 import com.whut.oneday.activity.SignUpActivity;
 
 import butterknife.ButterKnife;
@@ -38,7 +39,9 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("你点击了登录按钮", true);
+                Intent intent=new Intent(LoginActivity.this, BillOverviewActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -82,7 +85,7 @@ public class LoginActivity extends BaseActivity {
         loginPopSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("点击了第一个title",false);
+                showToast("点击了第一个title",BASE_SHORT);
                 Intent intent=new Intent(LoginActivity.this,SignUpActivity.class);
                 startActivity(intent);
                 popupWindow.dismiss();
@@ -92,7 +95,7 @@ public class LoginActivity extends BaseActivity {
         loginPopPhoneLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("点击了第二个title",false);
+                showToast("点击了第二个title",BASE_SHORT);
                 popupWindow.dismiss();
                 lighton();
             }
@@ -100,7 +103,7 @@ public class LoginActivity extends BaseActivity {
         loginPopTryIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("点击了第三个title",false);
+                showToast("点击了第三个title",BASE_SHORT);
                 popupWindow.dismiss();
                 lighton();
             }

@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 public class BaseActivity extends AppCompatActivity {
 
+    public static Boolean BASE_LONG=true;
+    public static Boolean BASE_SHORT=false;
+
     /**
      * 显示Toast方法
      * @param string 要显示的字符串
