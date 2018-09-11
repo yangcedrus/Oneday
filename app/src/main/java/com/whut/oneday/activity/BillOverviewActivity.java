@@ -117,7 +117,7 @@ public class BillOverviewActivity extends BaseActivity {
 
             @Override
             public void onNothingSelected() {
-
+                changeData("全部");
             }
         });
 
@@ -150,7 +150,9 @@ public class BillOverviewActivity extends BaseActivity {
     //初始化数据函数
     private void initData() {
         BillDesc bill;
-        list = new ArrayList<>();
+        if(list==null)
+            list = new ArrayList<>();
+        list.clear();
         for (int i = 0; i < 7; i++) {
             bill = new BillDesc("全部", "餐饮", -10.00, new Date(), "");
             list.add(bill);
@@ -260,7 +262,7 @@ public class BillOverviewActivity extends BaseActivity {
 
         //y轴的集合
         PieDataSet pieDataSet = new PieDataSet(entries, ""/*显示在比例图上*/);
-        pieDataSet.setSliceSpace(0f); //设置个饼状图之间的距离
+        pieDataSet.setSliceSpace(2f); //设置个饼状图之间的距离
 
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
