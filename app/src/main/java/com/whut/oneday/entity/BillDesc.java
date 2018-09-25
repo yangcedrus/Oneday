@@ -6,11 +6,11 @@ import java.util.Date;
  * 账单信息javabean
  */
 public class BillDesc {
-    String name;    //消费名称
-    String classify; //消费分类
-    Double money;   //消费金额
-    Date createTime; //记录时间
-    String others;  //备注
+    private String name;    //消费名称
+    private String classify; //消费分类
+    private Double money;   //消费金额
+    private Date createTime; //记录时间
+    private String others;  //备注
 
     public BillDesc() {
     }

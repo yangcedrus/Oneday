@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".BaseActivity" />
         <activity android:name=".activity.SignUpActivity" />
-        <activity android:name=".activity.BillOverviewActivity"></activity>
+        <activity android:name=".activity.BillOverviewActivity" />
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

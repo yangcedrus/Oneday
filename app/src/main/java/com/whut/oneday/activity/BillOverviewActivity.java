@@ -246,10 +246,6 @@ public class BillOverviewActivity extends BaseActivity {
         List<PieEntry> entries = new ArrayList<>();  //yVals用来表示封装每个饼块的实际数据
 
         // 饼图数据
-        /**
-         * 将一个饼形图分成四部分， 四部分的数值比例为14:14:34:38
-         * 所以 14代表的百分比就是14%
-         */
         float quarterly1 = 1;
         float quarterly2 = 1;
         float quarterly3 = 2;

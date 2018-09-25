@@ -67,7 +67,7 @@
         <ToggleButton
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:background="@drawable/psw_on_off"
+            android:background="@drawable/selector_psw_on_off"
             android:layout_gravity="bottom"
             android:layout_marginBottom="2dp"
             android:textOff=""
@@ -96,7 +96,7 @@
         <ToggleButton
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:background="@drawable/psw_on_off"
+            android:background="@drawable/selector_psw_on_off"
             android:layout_gravity="bottom"
             android:layout_marginBottom="2dp"
             android:textOff=""

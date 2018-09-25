@@ -8,4 +8,7 @@
     <color name="yellow">#FACC01</color>
 
     <color name="guildline">#000000</color>
+
+    <color name="tab_checked">#ED6A2C</color>
+    <color name="tab_unchecked">#757575</color>
 </resources>

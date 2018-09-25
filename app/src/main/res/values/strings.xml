@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Oneday</string>
 
-    <!--首页popupWindow菜单选项-->
+    <!--首页navigation选项-->
+    <string name="main_bottom_today">今天</string>
+    <string name="main_bottom_bill">账单</string>
+    <string name="main_bottom_memo">备忘录</string>
+    <string name="main_bottom_diary">日记</string>
+
+    <!--注册popupWindow菜单选项-->
     <string name="login_pop_1">注册</string>
     <string name="login_pop_2">手机登录</string>
     <string name="login_pop_3">直接试用</string>
@@ -22,4 +28,5 @@
     <string name="bill_overview">账单</string>
     <string name="income">收入</string>
     <string name="expenditure">支出</string>
+
 </resources>

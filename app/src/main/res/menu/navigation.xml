@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_today"
+        android:icon="@drawable/selector_psw_on_off"
+        android:title="@string/main_bottom_today" />
+    <item
+        android:id="@+id/navigation_bill"
+        android:icon="@drawable/selector_psw_on_off"
+        android:title="@string/main_bottom_bill" />
+    <item
+        android:id="@+id/navigation_memo"
+        android:icon="@drawable/selector_psw_on_off"
+        android:title="@string/main_bottom_memo" />
+    <item
+        android:id="@+id/navigation_diary"
+        android:icon="@drawable/selector_psw_on_off"
+        android:title="@string/main_bottom_diary" />
+</menu>

@@ -11,6 +11,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.whut.oneday.activity.BillOverviewActivity;
+import com.whut.oneday.activity.MainActivity;
 import com.whut.oneday.activity.SignUpActivity;
 
 import butterknife.ButterKnife;
@@ -39,7 +40,7 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this, BillOverviewActivity.class);
+                Intent intent=new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
