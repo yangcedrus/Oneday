@@ -13,10 +13,17 @@
     <dimen name="sign_up_phone">16sp</dimen>
     <dimen name="sign_up_text_height">32dp</dimen>
     <dimen name="sign_up_text_width">64dp</dimen>
+
+    <!--月份选择器-->
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen tools:override="true" name="design_bottom_navigation_text_size">12sp</dimen>
     <dimen tools:override="true" name="design_bottom_navigation_active_text_size">12sp</dimen>
+
+    <dimen name="month_picker_year_padding">25dp</dimen>
+    <dimen name="month_picker_month_button_margin">5dp</dimen>
+    <dimen name="month_picker_button_side_size">75dp</dimen>
+    <dimen name="month_picker_month_button_text_size">20sp</dimen>
 </resources>

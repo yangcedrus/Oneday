@@ -47,5 +47,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navigation" />
 
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- The main content view -->
+        <FrameLayout
+            android:id="@+id/main_left_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_eye_grey"/>
+
+        <!-- The navigation drawer -->
+        <ListView android:id="@+id/main_left_drawer"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:choiceMode="singleChoice"
+            android:divider="#33333333"
+            android:dividerHeight="0dp"
+            android:background="#ffeeeeee"
+            android:scrollbars="none"/>
+    </android.support.v4.widget.DrawerLayout>
+
 
 </android.support.constraint.ConstraintLayout>

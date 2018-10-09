@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.whut.oneday.activity.BillOverviewActivity;
 import com.whut.oneday.activity.MainActivity;
 import com.whut.oneday.activity.SignUpActivity;
 

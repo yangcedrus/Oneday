@@ -29,4 +29,24 @@
     <string name="income">收入</string>
     <string name="expenditure">支出</string>
 
+    <!--月份-->
+    <string name="month_picker_ok_button">确定</string>
+    <string name="month_picker_cancel_button">取消</string>
+    <string name="month_picker_dialog_title">选择年月</string>
+    <string name="month_picker_december_text">12月</string>
+    <string name="month_picker_november_text">11月</string>
+    <string name="month_picker_october_text">10月</string>
+    <string name="month_picker_september_text">9月</string>
+    <string name="month_picker_august_text">8月</string>
+    <string name="month_picker_july_text">7月</string>
+    <string name="month_picker_june_text">6月</string>
+    <string name="month_picker_may_text">5月</string>
+    <string name="month_picker_april_text">4月</string>
+    <string name="month_picker_march_text">3月</string>
+    <string name="month_picker_february_text">2月</string>
+    <string name="month_picker_january_text">1月</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

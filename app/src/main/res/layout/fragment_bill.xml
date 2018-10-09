@@ -1,14 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.BillFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <View
+        android:id="@+id/bill_line0"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="账单" />
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/bill_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text=""
+        android:textSize="@dimen/little_size"
+        app:layout_constraintEnd_toStartOf="@+id/bill_line1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_line0"/>
+
+    <TextView
+        android:id="@+id/bill_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="@dimen/big_size"
+        app:layout_constraintEnd_toStartOf="@+id/bill_line1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bill_year" />
+
+
+    <View
+        android:id="@+id/bill_line1"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bill_line2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <View
+        android:id="@+id/bill_line2"
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/bill_line1"
+        app:layout_constraintTop_toTopOf="@+id/bill_line1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/bill_line1"
+        app:layout_constraintVertical_bias="1.0"/>
+
+    <TextView
+        android:id="@+id/bill_tv_income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="收入"
+        app:layout_constraintEnd_toStartOf="@+id/bill_line2"
+        app:layout_constraintStart_toEndOf="@+id/bill_line1"
+        app:layout_constraintTop_toTopOf="@+id/bill_year" />
+
+    <TextView
+        android:id="@+id/bill_et_income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/bill_month"
+        app:layout_constraintEnd_toStartOf="@+id/bill_line2"
+        app:layout_constraintStart_toEndOf="@+id/bill_line1"
+        app:layout_constraintTop_toBottomOf="@+id/bill_tv_income" />
+
+    <TextView
+        android:id="@+id/bill_tv_expenditure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="支出"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bill_line2"
+        app:layout_constraintTop_toTopOf="@+id/bill_tv_income" />
+
+    <TextView
+        android:id="@+id/bill_et_expenditure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="0.00"
+        app:layout_constraintBottom_toBottomOf="@+id/bill_et_income"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bill_line2"
+        app:layout_constraintTop_toBottomOf="@+id/bill_tv_expenditure" />
+
+    <View
+        android:id="@+id/bill_line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_line1" />
+
+    <LinearLayout
+        android:id="@+id/bill_layout1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/shape_black_border"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_line3">
+
+        <TextView
+            android:id="@+id/bill_tab_detail"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="明细" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"/>
+
+        <TextView
+            android:id="@+id/bill_tab_table"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="图表" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/bill_line4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bill_layout1" />
+
+    <com.whut.oneday.tools.NoScrollViewPager
+        android:id="@+id/bill_viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bill_line4" />
+
+</android.support.constraint.ConstraintLayout>

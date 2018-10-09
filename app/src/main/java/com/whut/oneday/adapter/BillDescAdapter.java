@@ -8,27 +8,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.whut.oneday.R;
-import com.whut.oneday.entity.BillDesc;
+import com.whut.oneday.entity.Bill;
+import com.whut.oneday.tools.Content;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.logging.SimpleFormatter;
-
-import butterknife.InjectView;
 
 /**
  * billoverview页面list的adapter
  */
-public class BillOverViewAdapter extends RecyclerView.Adapter<BillOverViewAdapter.ViewHolder> {
-    private List<BillDesc> list;
+public class BillDescAdapter extends RecyclerView.Adapter<BillDescAdapter.ViewHolder> {
+    private List<Bill> list;
 
-    public BillOverViewAdapter(List<BillDesc> list) {
+    public BillDescAdapter(List<Bill> list) {
         this.list = list;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_bill_overview, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_bill_desc, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
@@ -36,15 +34,20 @@ public class BillOverViewAdapter extends RecyclerView.Adapter<BillOverViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //对item中的控件赋值
-        BillDesc billDesc=list.get(position);
+        Bill billDesc=list.get(position);
         // TODO: 2018/9/6 写一个函数根据分类返回图片 
 //        holder.itemBillImage.setImageDrawable();
-        holder.itemBillName.setText(billDesc.getName());
-        holder.itemBillClassify.setText(billDesc.getClassify());
+        holder.itemBillName.setText(billDesc.getTitle());
+        holder.itemBillClassify.setText(Content.billTypeMap.get(billDesc.getBillType()));
         SimpleDateFormat format=new SimpleDateFormat("MM-dd HH:mm");
-        String time=format.format(billDesc.getCreateTime());
+        String time=format.format(billDesc.getCreatestamp());
         holder.itemBillTime.setText(time);
-        String money=billDesc.getMoney()+"";
+        String money;
+        if(billDesc.getIOE()){
+            money="+"+billDesc.getMoney();
+        }else {
+            money="-"+billDesc.getMoney();
+        }
         holder.itemBillMoney.setText(money);
     }
 
