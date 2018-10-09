@@ -5,13 +5,17 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.whut.oneday.BaseActivity;
 import com.whut.oneday.R;
-import com.whut.oneday.adapter.MainViewPagerAdapter;
+import com.whut.oneday.adapter.FragmentViewPagerAdapter;
+import com.whut.oneday.adapter.MainDrawerAdapter;
 import com.whut.oneday.fragment.BillFragment;
 import com.whut.oneday.fragment.DiaryFragment;
 import com.whut.oneday.fragment.MemoFragment;
@@ -35,9 +39,16 @@ public class MainActivity extends BaseActivity {
     NoScrollViewPager mainViewpager;
     @InjectView(R.id.main_Navigation)
     BottomNavigationView mainNavigation;
+    @InjectView(R.id.main_left_drawer)
+    ListView mainLeftDrawer;
 
-    private MainViewPagerAdapter viewPagerAdapter;
+    private FragmentViewPagerAdapter viewPagerAdapter;
     private MenuItem menuItem;
+
+    //侧拉菜单相关
+    MainDrawerAdapter drawerAdapter;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle barDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +66,9 @@ public class MainActivity extends BaseActivity {
         //导航栏添加监听
         mainNavigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
-        //ViewPager禁止滑动
+        //侧滑菜单设置Adapter
+
+        //ViewPager禁止滑动,添加监听
         mainViewpager.setNoScroll(true);
         mainViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -80,7 +93,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        viewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager());
+        viewPagerAdapter = new FragmentViewPagerAdapter(getSupportFragmentManager());
         mainViewpager.setAdapter(viewPagerAdapter);
         List<Fragment> list = new ArrayList<>();
         list.add(new TodayFragment());
@@ -90,10 +103,10 @@ public class MainActivity extends BaseActivity {
         viewPagerAdapter.setList(list);
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener=new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()){
+            switch (item.getItemId()) {
                 case R.id.navigation_today:
                     //切换标题
                     mainTitle.setText(R.string.main_bottom_today);
@@ -122,7 +135,8 @@ public class MainActivity extends BaseActivity {
                     //切换页面
                     mainViewpager.setCurrentItem(3);
                     break;
-                default:break;
+                default:
+                    break;
             }
             return false;
         }
