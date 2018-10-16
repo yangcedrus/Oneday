@@ -54,6 +54,7 @@ public class Bill {
 		this.billType = billType;
 		this.money = money;
 		this.tips = tips;
+		createstamp=new Timestamp(0);
 	}
 
 	public Integer getBillID() {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
     <android.support.v7.widget.Toolbar
@@ -23,52 +24,60 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <com.whut.oneday.tools.NoScrollViewPager
-        android:id="@+id/main_viewpager"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/main_Navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_toolbar" />
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/main_Navigation"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:background="?android:attr/windowBackground"
-        app:itemBackground="@null"
-        app:itemIconTint="@drawable/selector_bottom_navigation"
-        app:itemTextColor="@drawable/selector_bottom_navigation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navigation" />
+        app:layout_constraintTop_toBottomOf="@id/main_toolbar">
 
-    <android.support.v4.widget.DrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <!-- The main content view -->
-        <FrameLayout
-            android:id="@+id/main_left_icon"
+        <com.whut.oneday.tools.MyDrawerLayout
+            android:id="@+id/main_drawer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_eye_grey"/>
+            android:layout_height="match_parent">
 
-        <!-- The navigation drawer -->
-        <ListView android:id="@+id/main_left_drawer"
-            android:layout_width="240dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:choiceMode="singleChoice"
-            android:divider="#33333333"
-            android:dividerHeight="0dp"
-            android:background="#ffeeeeee"
-            android:scrollbars="none"/>
-    </android.support.v4.widget.DrawerLayout>
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.whut.oneday.tools.NoScrollViewPager
+                    android:id="@+id/main_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    app:layout_constraintBottom_toTopOf="@+id/main_Navigation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.design.widget.BottomNavigationView
+                    android:id="@+id/main_Navigation"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="?android:attr/windowBackground"
+                    app:itemBackground="@null"
+                    app:itemIconTint="@drawable/selector_bottom_navigation"
+                    app:itemTextColor="@drawable/selector_bottom_navigation"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:menu="@menu/navigation" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.design.widget.NavigationView
+                android:id="@+id/navigation_view"
+                android:layout_width="320dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                app:menu="@menu/left_navigation"/>
+
+        </com.whut.oneday.tools.MyDrawerLayout>
+
+    </LinearLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>

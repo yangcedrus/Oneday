@@ -6,6 +6,8 @@
     <string name="main_bottom_bill">账单</string>
     <string name="main_bottom_memo">备忘录</string>
     <string name="main_bottom_diary">日记</string>
+    <string name="drawer_open">拉出</string>
+    <string name="drawer_close">退回</string>
 
     <!--注册popupWindow菜单选项-->
     <string name="login_pop_1">注册</string>
@@ -28,6 +30,7 @@
     <string name="bill_overview">账单</string>
     <string name="income">收入</string>
     <string name="expenditure">支出</string>
+    <string name="bill_add_one">➕记一笔</string>
 
     <!--月份-->
     <string name="month_picker_ok_button">确定</string>
@@ -45,6 +48,24 @@
     <string name="month_picker_march_text">3月</string>
     <string name="month_picker_february_text">2月</string>
     <string name="month_picker_january_text">1月</string>
+
+    <!--个人设置页面-->
+    <string name="my_info_billDays">记账天数</string>
+    <string name="my_info_bills">记账笔数</string>
+
+    <!--个人信息页面-->
+    <string name="my_info">个人信息</string>
+    <string name="my_info_icon">头像</string>
+    <string name="my_info_id">ID</string>
+    <string name="my_info_name">昵称</string>
+    <string name="my_info_password">修改密码</string>
+    <string name="my_info_phone">手机号</string>
+    <string name="my_info_qq">QQ</string>
+    <string name="my_info_wechat">微信</string>
+    <string name="logout">退出登录</string>
+
+    <!--编辑日记页面-->
+    <dimen name="grid_expected_size">120dp</dimen>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

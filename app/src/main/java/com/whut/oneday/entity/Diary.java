@@ -1,6 +1,9 @@
 package com.whut.oneday.entity;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.sql.Timestamp;
 
 /**
@@ -8,7 +11,7 @@ import java.sql.Timestamp;
  * @version 1.0
  * @created 18-9月-2018 19:06:44
  */
-public class Diary {
+public class Diary implements Parcelable{
 
 	/**
 	 * 日记ID
@@ -97,4 +100,43 @@ public class Diary {
 	public void setMood(String mood) {
 		this.mood = mood;
 	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int i) {
+		dest.writeInt(diaryID);
+		dest.writeInt(userID);
+		dest.writeString(body);
+		dest.writeString(createstamp.toString());
+		dest.writeString(date);
+		dest.writeString(weather);
+		dest.writeString(mood);
+	}
+
+	public static final Parcelable.Creator<Diary> CREATOR=new Parcelable.Creator<Diary>() {
+
+		@Override
+		public Diary createFromParcel(Parcel source) {
+			// TODO Auto-generated method stub
+			Diary diary=new Diary();
+			diary.diaryID=source.readInt();
+			diary.userID=source.readInt();
+			diary.body=source.readString();
+			diary.createstamp=Timestamp.valueOf(source.readString());
+			diary.date=source.readString();
+			diary.weather=source.readString();
+			diary.mood=source.readString();
+			return diary;
+		}
+
+		@Override
+		public Diary[] newArray(int size) {
+			// TODO Auto-generated method stub
+			return new Diary[size];
+		}
+	};
 }

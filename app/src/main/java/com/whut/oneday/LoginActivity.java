@@ -10,8 +10,12 @@ import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.whut.oneday.activity.DiaryDetailActivity;
+import com.whut.oneday.activity.EditDiaryActivity;
 import com.whut.oneday.activity.MainActivity;
 import com.whut.oneday.activity.SignUpActivity;
+import com.whut.oneday.entity.User;
+import com.whut.oneday.tools.Content;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -27,6 +31,8 @@ public class LoginActivity extends BaseActivity {
     @InjectView(R.id.login_other_login)
     TextView loginOtherLogin;
 
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +45,9 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                Intent intent=new Intent(LoginActivity.this, MainActivity.class);
                 Intent intent=new Intent(LoginActivity.this, MainActivity.class);
+//                intent.putExtra("diary_detail", Content.tempDiary);
                 startActivity(intent);
                 finish();
             }
@@ -142,5 +150,9 @@ public class LoginActivity extends BaseActivity {
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.alpha = 1f;
         getWindow().setAttributes(lp);
+    }
+
+    private void saveUser(){
+        // TODO: 2018/10/9 登录后存储user信息到Content中，然后保存到sharedpreference中
     }
 }
