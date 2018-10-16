@@ -6,9 +6,9 @@
     tools:context=".fragment.DiaryFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="日记" />
+        android:id="@+id/diary_recyclerview"/>
 
 </FrameLayout>

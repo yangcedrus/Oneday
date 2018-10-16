@@ -27,11 +27,6 @@ public class TodayFragment extends Fragment {
     private TodayRecyclerViewAdapter adapter;
     private TodayWeather todayWeather;
 
-    public TodayFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,10 +47,13 @@ public class TodayFragment extends Fragment {
         initWeather();
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new TodayRecyclerViewAdapter(todayWeather);
+        adapter = new TodayRecyclerViewAdapter(todayWeather,getContext());
         recyclerView.setAdapter(adapter);
 
+    }
 
+    private void reFresh() {
+        adapter.notifyDataSetChanged();
     }
 
     private void initWeather(){

@@ -9,8 +9,16 @@
         android:id="@+id/item_today_time"
         android:layout_width="80dp"
         android:layout_height="20dp"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="31dp" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17000002" />
 
     <TextView
         android:id="@+id/item_today_location"
@@ -25,6 +33,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="16dp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="@id/item_today_location"
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toStartOf="@+id/item_today_weather"
