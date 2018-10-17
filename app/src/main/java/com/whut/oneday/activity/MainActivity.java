@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.google.gson.Gson;
 import com.whut.oneday.BaseActivity;
 import com.whut.oneday.R;
 import com.whut.oneday.adapter.FragmentViewPagerAdapter;
@@ -29,7 +28,6 @@ import com.whut.oneday.fragment.TodayFragment;
 import com.whut.oneday.tools.BottomNavigationViewHelper;
 import com.whut.oneday.tools.Content;
 import com.whut.oneday.tools.NoScrollViewPager;
-import com.whut.oneday.weatherUtils.WeatherMsg;
 
 import java.util.ArrayList;
 import java.util.List;

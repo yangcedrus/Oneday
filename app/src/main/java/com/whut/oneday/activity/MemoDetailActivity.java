@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -72,7 +71,7 @@ public class MemoDetailActivity extends BaseActivity {
         initData();
 
         //显示页面数据
-        if(memo!=null)
+        if (memo != null)
             showDataSync(memo.getBody());
         else
             showDataSync("无内容显示");
@@ -81,14 +80,14 @@ public class MemoDetailActivity extends BaseActivity {
     /**
      * 初始化页面数据
      */
-    private void initData(){
+    private void initData() {
         //获取diary
-        Intent intent=getIntent();
-        if(intent==null)
+        Intent intent = getIntent();
+        if (intent == null)
             return;
-        memo=intent.getParcelableExtra("memo_detail");
+        memo = intent.getParcelableExtra("memo_detail");
 
-        if(memo==null){
+        if (memo == null) {
             return;
         }
         memoDetailsName.setText(memo.getTitle());
@@ -102,21 +101,22 @@ public class MemoDetailActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_detail_diary,menu);
+        getMenuInflater().inflate(R.menu.menu_detail_diary, menu);
         return true;
     }
 
     /**
      * 编辑按钮点击响应
+     *
      * @param item 被点击的按钮
      * @return
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.detail_diary_edit:
-                Intent intent=new Intent(MemoDetailActivity.this,EditMemoActivity.class);
-                intent.putExtra("edit_memo",memo);
+                Intent intent = new Intent(MemoDetailActivity.this, EditMemoActivity.class);
+                intent.putExtra("edit_memo", memo);
                 startActivity(intent);
                 finish();
                 break;
@@ -129,9 +129,10 @@ public class MemoDetailActivity extends BaseActivity {
 
     /**
      * 异步方式显示数据
+     *
      * @param html
      */
-    private void showDataSync(final String html){
+    private void showDataSync(final String html) {
 
         subsLoading = Observable.create(new Observable.OnSubscribe<String>() {
             @Override
@@ -145,17 +146,17 @@ public class MemoDetailActivity extends BaseActivity {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onCompleted() {
-                        if (loadingDialog != null){
+                        if (loadingDialog != null) {
                             loadingDialog.dismiss();
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        if (loadingDialog != null){
+                        if (loadingDialog != null) {
                             loadingDialog.dismiss();
                         }
-                        showToast("解析错误：图片不存在或已损坏",false);
+                        showToast("解析错误：图片不存在或已损坏", false);
                     }
 
                     @Override
@@ -174,6 +175,7 @@ public class MemoDetailActivity extends BaseActivity {
 
     /**
      * 显示数据
+     *
      * @param html
      */
     private void showEditData(Subscriber<? super String> subscriber, String html) {
@@ -184,7 +186,7 @@ public class MemoDetailActivity extends BaseActivity {
                 subscriber.onNext(text);
             }
             subscriber.onCompleted();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             subscriber.onError(e);
         }

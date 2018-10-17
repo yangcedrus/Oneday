@@ -10,7 +10,6 @@ import android.widget.Button;
 
 import com.whut.oneday.R;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -38,7 +37,7 @@ public class MonthPickerDialog implements View.OnClickListener {
     }
 
     private void initMonthButton(@IdRes int buttonResource, int monthNumber) {
-        Button button = (Button)dialog.findViewById(buttonResource);
+        Button button = (Button) dialog.findViewById(buttonResource);
         button.setTag(monthNumber);
         button.setOnClickListener(this);
     }
@@ -83,10 +82,10 @@ public class MonthPickerDialog implements View.OnClickListener {
         initMonthButton(R.id.button_november, Calendar.NOVEMBER);
         initMonthButton(R.id.button_december, Calendar.DECEMBER);
 
-        Button buttonPick = (Button)dialog.findViewById(R.id.button_pick);
+        Button buttonPick = (Button) dialog.findViewById(R.id.button_pick);
         buttonPick.setOnClickListener(this);
 
-        Button buttonCancel = (Button)dialog.findViewById(R.id.button_cancel);
+        Button buttonCancel = (Button) dialog.findViewById(R.id.button_cancel);
         buttonCancel.setOnClickListener(this);
 
         yearPicker = (StringScrollPicker) dialog.findViewById(R.id.year_picker);
@@ -137,40 +136,40 @@ public class MonthPickerDialog implements View.OnClickListener {
 
         switch (monthNumber) {
             case Calendar.JANUARY:
-                button = (Button)dialog.findViewById(R.id.button_january);
+                button = (Button) dialog.findViewById(R.id.button_january);
                 break;
             case Calendar.FEBRUARY:
-                button = (Button)dialog.findViewById(R.id.button_february);
+                button = (Button) dialog.findViewById(R.id.button_february);
                 break;
             case Calendar.MARCH:
-                button = (Button)dialog.findViewById(R.id.button_march);
+                button = (Button) dialog.findViewById(R.id.button_march);
                 break;
             case Calendar.APRIL:
-                button = (Button)dialog.findViewById(R.id.button_april);
+                button = (Button) dialog.findViewById(R.id.button_april);
                 break;
             case Calendar.MAY:
-                button = (Button)dialog.findViewById(R.id.button_may);
+                button = (Button) dialog.findViewById(R.id.button_may);
                 break;
             case Calendar.JUNE:
-                button = (Button)dialog.findViewById(R.id.button_june);
+                button = (Button) dialog.findViewById(R.id.button_june);
                 break;
             case Calendar.JULY:
-                button = (Button)dialog.findViewById(R.id.button_july);
+                button = (Button) dialog.findViewById(R.id.button_july);
                 break;
             case Calendar.AUGUST:
-                button = (Button)dialog.findViewById(R.id.button_august);
+                button = (Button) dialog.findViewById(R.id.button_august);
                 break;
             case Calendar.SEPTEMBER:
-                button = (Button)dialog.findViewById(R.id.button_september);
+                button = (Button) dialog.findViewById(R.id.button_september);
                 break;
             case Calendar.OCTOBER:
-                button = (Button)dialog.findViewById(R.id.button_october);
+                button = (Button) dialog.findViewById(R.id.button_october);
                 break;
             case Calendar.NOVEMBER:
-                button = (Button)dialog.findViewById(R.id.button_november);
+                button = (Button) dialog.findViewById(R.id.button_november);
                 break;
             case Calendar.DECEMBER:
-                button = (Button)dialog.findViewById(R.id.button_december);
+                button = (Button) dialog.findViewById(R.id.button_december);
                 break;
         }
 
@@ -187,7 +186,7 @@ public class MonthPickerDialog implements View.OnClickListener {
         if (monthButtons.contains(target)) {
             int commonColor = context.getResources().getColor(R.color.month_picker_month_button_background_color);
             setButtonBackground(month, commonColor);
-            month = (int)view.getTag();
+            month = (int) view.getTag();
             int activeColor = context.getResources().getColor(R.color.month_picker_month_button_active_background_color);
             view.setBackgroundColor(activeColor);
         } else if (target == R.id.button_pick) {

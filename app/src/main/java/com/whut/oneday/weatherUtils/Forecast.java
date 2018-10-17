@@ -25,9 +25,11 @@ public class Forecast implements Parcelable {
     private String fl;
     private String type;
     private String notice;
+
     public void setDate(String date) {
         this.date = date;
     }
+
     public String getDate() {
         return date;
     }
@@ -35,6 +37,7 @@ public class Forecast implements Parcelable {
     public void setSunrise(String sunrise) {
         this.sunrise = sunrise;
     }
+
     public String getSunrise() {
         return sunrise;
     }
@@ -42,6 +45,7 @@ public class Forecast implements Parcelable {
     public void setHigh(String high) {
         this.high = high;
     }
+
     public String getHigh() {
         return high;
     }
@@ -49,6 +53,7 @@ public class Forecast implements Parcelable {
     public void setLow(String low) {
         this.low = low;
     }
+
     public String getLow() {
         return low;
     }
@@ -56,6 +61,7 @@ public class Forecast implements Parcelable {
     public void setSunset(String sunset) {
         this.sunset = sunset;
     }
+
     public String getSunset() {
         return sunset;
     }
@@ -63,6 +69,7 @@ public class Forecast implements Parcelable {
     public void setAqi(int aqi) {
         this.aqi = aqi;
     }
+
     public int getAqi() {
         return aqi;
     }
@@ -70,6 +77,7 @@ public class Forecast implements Parcelable {
     public void setFx(String fx) {
         this.fx = fx;
     }
+
     public String getFx() {
         return fx;
     }
@@ -77,6 +85,7 @@ public class Forecast implements Parcelable {
     public void setFl(String fl) {
         this.fl = fl;
     }
+
     public String getFl() {
         return fl;
     }
@@ -84,6 +93,7 @@ public class Forecast implements Parcelable {
     public void setType(String type) {
         this.type = type;
     }
+
     public String getType() {
         return type;
     }
@@ -91,6 +101,7 @@ public class Forecast implements Parcelable {
     public void setNotice(String notice) {
         this.notice = notice;
     }
+
     public String getNotice() {
         return notice;
     }
@@ -114,20 +125,20 @@ public class Forecast implements Parcelable {
         dest.writeString(notice);
     }
 
-    private static final Parcelable.Creator<Forecast> CREATOR=new Parcelable.Creator<Forecast>(){
+    private static final Parcelable.Creator<Forecast> CREATOR = new Parcelable.Creator<Forecast>() {
         @Override
         public Forecast createFromParcel(Parcel source) {
-            Forecast forecast=new Forecast();
-            forecast.date=source.readString();
-            forecast.sunrise=source.readString();
-            forecast.high=source.readString();
-            forecast.low=source.readString();
-            forecast.sunset=source.readString();
-            forecast.aqi=source.readInt();
-            forecast.fx=source.readString();
-            forecast.fl=source.readString();
-            forecast.type=source.readString();
-            forecast.notice=source.readString();
+            Forecast forecast = new Forecast();
+            forecast.date = source.readString();
+            forecast.sunrise = source.readString();
+            forecast.high = source.readString();
+            forecast.low = source.readString();
+            forecast.sunset = source.readString();
+            forecast.aqi = source.readInt();
+            forecast.fx = source.readString();
+            forecast.fl = source.readString();
+            forecast.type = source.readString();
+            forecast.notice = source.readString();
             return forecast;
         }
 

@@ -16,9 +16,11 @@ public class CityInfo {
     private String cityId;
     private String parent;
     private String updateTime;
+
     public void setCity(String city) {
         this.city = city;
     }
+
     public String getCity() {
         return city;
     }
@@ -26,6 +28,7 @@ public class CityInfo {
     public void setCityId(String cityId) {
         this.cityId = cityId;
     }
+
     public String getCityId() {
         return cityId;
     }
@@ -33,6 +36,7 @@ public class CityInfo {
     public void setParent(String parent) {
         this.parent = parent;
     }
+
     public String getParent() {
         return parent;
     }
@@ -40,6 +44,7 @@ public class CityInfo {
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
+
     public String getUpdateTime() {
         return updateTime;
     }

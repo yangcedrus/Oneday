@@ -58,7 +58,7 @@ public class MyInfoActivity extends BaseActivity {
     @InjectView(R.id.my_info_layout7)
     RelativeLayout myInfoLayout7;
 
-    private final int LOCAL_USER_ICON_REQUEST=102;
+    private final int LOCAL_USER_ICON_REQUEST = 102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +108,7 @@ public class MyInfoActivity extends BaseActivity {
                     .apply(myOptions)
                     .into(myInfoIcon);
         }
-        if(Content.localUser.getUserID()!=null){
+        if (Content.localUser.getUserID() != null) {
             myInfoId.setText(String.valueOf(Content.localUser.getUserID()));
         }
         if (Content.localUser.getUsername() != null) {
@@ -116,17 +116,17 @@ public class MyInfoActivity extends BaseActivity {
         }
         if (Content.localUser.getPhone() != null) {
             myInfoPhone.setText(Content.localUser.getPhone());
-        }else {
+        } else {
             myInfoPhone.setText("未设置");
         }
         if (Content.localUser.getQq() != null) {
             myInfoQq.setText(Content.localUser.getQq());
-        }else {
+        } else {
             myInfoQq.setText("未设置");
         }
         if (Content.localUser.getWechat() != null) {
             myInfoWechat.setText(Content.localUser.getWechat());
-        }else {
+        } else {
             myInfoWechat.setText("未设置");
         }
     }

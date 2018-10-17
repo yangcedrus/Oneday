@@ -3,6 +3,7 @@ package com.whut.oneday.weatherUtils;
 /**
  * Copyright 2018 bejson.com
  */
+
 import java.util.Date;
 
 /**
@@ -19,9 +20,11 @@ public class WeatherMsg {
     private String message;
     private int status;
     private Data data;
+
     public void setTime(Date time) {
         this.time = time;
     }
+
     public Date getTime() {
         return time;
     }
@@ -29,6 +32,7 @@ public class WeatherMsg {
     public void setCityInfo(CityInfo cityInfo) {
         this.cityInfo = cityInfo;
     }
+
     public CityInfo getCityInfo() {
         return cityInfo;
     }
@@ -36,6 +40,7 @@ public class WeatherMsg {
     public void setDate(String date) {
         this.date = date;
     }
+
     public String getDate() {
         return date;
     }
@@ -43,6 +48,7 @@ public class WeatherMsg {
     public void setMessage(String message) {
         this.message = message;
     }
+
     public String getMessage() {
         return message;
     }
@@ -50,6 +56,7 @@ public class WeatherMsg {
     public void setStatus(int status) {
         this.status = status;
     }
+
     public int getStatus() {
         return status;
     }
@@ -57,6 +64,7 @@ public class WeatherMsg {
     public void setData(Data data) {
         this.data = data;
     }
+
     public Data getData() {
         return data;
     }

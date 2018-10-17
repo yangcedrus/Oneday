@@ -50,7 +50,7 @@ public class User {
      */
     private String iconpath;
 
-    public User(){
+    public User() {
     }
 
     public Integer getUserID() {

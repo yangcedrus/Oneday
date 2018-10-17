@@ -34,19 +34,19 @@ public class BillDescAdapter extends RecyclerView.Adapter<BillDescAdapter.ViewHo
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //对item中的控件赋值
-        Bill billDesc=list.get(position);
+        Bill billDesc = list.get(position);
         // TODO: 2018/9/6 写一个函数根据分类返回图片 
 //        holder.itemBillImage.setImageDrawable();
         holder.itemBillName.setText(billDesc.getTitle());
         holder.itemBillClassify.setText(Content.billTypeMap.get(billDesc.getBillType()));
-        SimpleDateFormat format=new SimpleDateFormat("MM-dd HH:mm");
-        String time=format.format(billDesc.getCreatestamp());
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd HH:mm");
+        String time = format.format(billDesc.getCreatestamp());
         holder.itemBillTime.setText(time);
         String money;
-        if(billDesc.getIOE()){
-            money="+"+billDesc.getMoney();
-        }else {
-            money="-"+billDesc.getMoney();
+        if (billDesc.getIOE()) {
+            money = "+" + billDesc.getMoney();
+        } else {
+            money = "-" + billDesc.getMoney();
         }
         holder.itemBillMoney.setText(money);
     }
@@ -66,11 +66,11 @@ public class BillDescAdapter extends RecyclerView.Adapter<BillDescAdapter.ViewHo
         ViewHolder(View view) {
             super(view);
             //定位控件
-            itemBillImage=(ImageView)view.findViewById(R.id.item_bill_image);
-            itemBillName=(TextView)view.findViewById(R.id.item_bill_name);
-            itemBillClassify=(TextView)view.findViewById(R.id.item_bill_classify);
-            itemBillTime=(TextView)view.findViewById(R.id.item_bill_time);
-            itemBillMoney=(TextView)view.findViewById(R.id.item_bill_money);
+            itemBillImage = (ImageView) view.findViewById(R.id.item_bill_image);
+            itemBillName = (TextView) view.findViewById(R.id.item_bill_name);
+            itemBillClassify = (TextView) view.findViewById(R.id.item_bill_classify);
+            itemBillTime = (TextView) view.findViewById(R.id.item_bill_time);
+            itemBillMoney = (TextView) view.findViewById(R.id.item_bill_money);
         }
     }
 }

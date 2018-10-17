@@ -60,11 +60,12 @@ public class Content {
         tempDiary.setDate("2018/10/16");
     }
 
-    public static Map<String,WeatherMsg> localWeatherMsg;
+    public static Map<String, WeatherMsg> localWeatherMsg;
+
     static {
-        localWeatherMsg=new HashMap<>();
+        localWeatherMsg = new HashMap<>();
         String msg = "{\"time\":\"2018-10-16 16:13:17\",\"cityInfo\":{\"city\":\"天津市\",\"cityId\":\"101030100\",\"parent\":\"天津\",\"updateTime\":\"15:52\"},\"date\":\"20181016\",\"message\":\"Success !\",\"status\":200,\"data\":{\"shidu\":\"75%\",\"pm25\":53.0,\"pm10\":68.0,\"quality\":\"良\",\"wendu\":\"13\",\"ganmao\":\"极少数敏感人群应减少户外活动\",\"yesterday\":{\"date\":\"15日星期一\",\"sunrise\":\"06:19\",\"high\":\"高温 20.0℃\",\"low\":\"低温 10.0℃\",\"sunset\":\"17:34\",\"aqi\":145.0,\"fx\":\"西南风\",\"fl\":\"<3级\",\"type\":\"阴\",\"notice\":\"不要被阴云遮挡住好心情\"},\"forecast\":[{\"date\":\"16日星期二\",\"sunrise\":\"06:20\",\"high\":\"高温 15.0℃\",\"low\":\"低温 9.0℃\",\"sunset\":\"17:33\",\"aqi\":87.0,\"fx\":\"东北风\",\"fl\":\"3-4级\",\"type\":\"小雨\",\"notice\":\"雨虽小，注意保暖别感冒\"},{\"date\":\"17日星期三\",\"sunrise\":\"06:21\",\"high\":\"高温 19.0℃\",\"low\":\"低温 6.0℃\",\"sunset\":\"17:31\",\"aqi\":72.0,\"fx\":\"东南风\",\"fl\":\"<3级\",\"type\":\"晴\",\"notice\":\"愿你拥有比阳光明媚的心情\"},{\"date\":\"18日星期四\",\"sunrise\":\"06:22\",\"high\":\"高温 20.0℃\",\"low\":\"低温 9.0℃\",\"sunset\":\"17:30\",\"aqi\":105.0,\"fx\":\"南风\",\"fl\":\"<3级\",\"type\":\"晴\",\"notice\":\"愿你拥有比阳光明媚的心情\"},{\"date\":\"19日星期五\",\"sunrise\":\"06:23\",\"high\":\"高温 19.0℃\",\"low\":\"低温 11.0℃\",\"sunset\":\"17:29\",\"aqi\":140.0,\"fx\":\"西南风\",\"fl\":\"<3级\",\"type\":\"多云\",\"notice\":\"阴晴之间，谨防紫外线侵扰\"},{\"date\":\"20日星期六\",\"sunrise\":\"06:24\",\"high\":\"高温 20.0℃\",\"low\":\"低温 12.0℃\",\"sunset\":\"17:27\",\"aqi\":125.0,\"fx\":\"西南风\",\"fl\":\"<3级\",\"type\":\"阴\",\"notice\":\"不要被阴云遮挡住好心情\"}]}}";
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-        localWeatherMsg.put("天津市",gson.fromJson(msg,WeatherMsg.class));
+        localWeatherMsg.put("天津市", gson.fromJson(msg, WeatherMsg.class));
     }
 }

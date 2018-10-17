@@ -41,10 +41,11 @@ public class StringUtils {
 
     /**
      * 获取img标签中的src值
+     *
      * @param content
      * @return
      */
-    public static String getImgSrc(String content){
+    public static String getImgSrc(String content) {
         String str_src = null;
         //目前img标签标示有3种表达式
         //<img alt="" src="1.jpg"/>   <img alt="" src="1.jpg"></img>     <img alt="" src="1.jpg">
@@ -74,8 +75,9 @@ public class StringUtils {
 
     /**
      * 关键字高亮显示
-     * @param target  需要高亮的关键字
-     * @param text	     需要显示的文字
+     *
+     * @param target 需要高亮的关键字
+     * @param text   需要显示的文字
      * @return spannable 处理完后的结果，记得不要toString()，否则没有效果
      * SpannableStringBuilder textString = TextUtilTools.highlight(item.getItemName(), KnowledgeActivity.searchKey);
      * vHolder.tv_itemName_search.setText(textString);
@@ -96,11 +98,12 @@ public class StringUtils {
 
     /**
      * 从html文本中提取图片地址，或者文本内容
-     * @param html 传入html文本
+     *
+     * @param html       传入html文本
      * @param isGetImage true获取图片，false获取文本
      * @return
      */
-    public static ArrayList<String> getTextFromHtml(String html, boolean isGetImage){
+    public static ArrayList<String> getTextFromHtml(String html, boolean isGetImage) {
         ArrayList<String> imageList = new ArrayList<>();
         ArrayList<String> textList = new ArrayList<>();
         //根据img标签分割出图片和字符串

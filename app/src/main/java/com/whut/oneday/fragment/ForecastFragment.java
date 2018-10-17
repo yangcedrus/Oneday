@@ -129,20 +129,20 @@ public class ForecastFragment extends Fragment {
             return;
 
         //填充数据
-        Forecast forecast=data.getForecast().get(0);
+        Forecast forecast = data.getForecast().get(0);
         weatherDetailsLocation.setText(city);
         weatherDetailsWeather.setText(forecast.getType());
-        weatherDetailsQuality.setText("空气  "+data.getQuality());
+        weatherDetailsQuality.setText("空气  " + data.getQuality());
         weatherDetailsTemperature.setText(data.getWendu());
-        weatherDetailsPm25.setText("PM2.5  "+Double.toString(data.getPm25()));
-        weatherDetailsMin.setText(forecast.getHigh()+"/"+forecast.getLow());
+        weatherDetailsPm25.setText("PM2.5  " + Double.toString(data.getPm25()));
+        weatherDetailsMin.setText(forecast.getHigh() + "/" + forecast.getLow());
         weatherDetailsNotice.setText(forecast.getNotice());
         // FIXME: 2018/10/17 今天的最高气温以及最低气温,以及图片更换
         for (int i = 0; i < 4; i++) {
             forecast = data.getForecast().get(i + 1);
             datelist.get(i).setText(forecast.getDate());
             imagelist.get(i).setImageResource(R.drawable.ic_eye_grey);
-            maxlist.get(i).setText(forecast.getHigh().substring(3)+"/"+forecast.getLow().substring(3));
+            maxlist.get(i).setText(forecast.getHigh().substring(3) + "/" + forecast.getLow().substring(3));
         }
     }
 

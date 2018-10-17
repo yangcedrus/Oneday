@@ -17,7 +17,6 @@ import com.whut.oneday.entity.Bill;
 import com.whut.oneday.tools.Content;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -65,13 +64,13 @@ public class BillDetailFragment extends Fragment {
         if (list == null)
             list = new ArrayList<>();
         list.clear();
-        Integer year=BillFragment.getYear();
-        Integer month=BillFragment.getMonth();
-        list= Content.billMap.get(year*100+month);
+        Integer year = BillFragment.getYear();
+        Integer month = BillFragment.getMonth();
+        list = Content.billMap.get(year * 100 + month);
         //本地获取不到信息,先初始化
-        if(list.size()==0){
+        if (list.size() == 0) {
             for (int i = 0; i < 7; i++) {
-                bill = new Bill(1000000,1000000,"全部", false,1, 10.00,"");
+                bill = new Bill(1000000, 1000000, "全部", false, 1, 10.00, "");
                 list.add(bill);
             }
         }

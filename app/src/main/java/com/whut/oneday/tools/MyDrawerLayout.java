@@ -5,7 +5,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
 
 public class MyDrawerLayout extends DrawerLayout {
-    public MyDrawerLayout(Context context){
+    public MyDrawerLayout(Context context) {
         super(context);
     }
 

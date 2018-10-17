@@ -11,28 +11,27 @@ import android.widget.TextView;
 
 import com.whut.oneday.R;
 import com.whut.oneday.activity.WeatherDetails;
-import com.whut.oneday.weatherUtils.TodayWeather;
 import com.whut.oneday.weatherUtils.WeatherMsg;
 
 import java.text.SimpleDateFormat;
 
-public class TodayRecyclerViewAdapter extends  RecyclerView.Adapter<TodayRecyclerViewAdapter.ViewHolder>{
+public class TodayRecyclerViewAdapter extends RecyclerView.Adapter<TodayRecyclerViewAdapter.ViewHolder> {
 
-    final static private int WEATHER=0x00000001;
-    final static private int HISTORY=0x00000002;
+    final static private int WEATHER = 0x00000001;
+    final static private int HISTORY = 0x00000002;
     private Context mcontext;
     private static WeatherMsg todayWeather;
 
-    public TodayRecyclerViewAdapter(WeatherMsg todayWeather,Context mcontext){
-        this.todayWeather=todayWeather;
-        this.mcontext=mcontext;
+    public TodayRecyclerViewAdapter(WeatherMsg todayWeather, Context mcontext) {
+        this.todayWeather = todayWeather;
+        this.mcontext = mcontext;
     }
 
     @Override
     public int getItemViewType(int position) {
-        if(position==0){
+        if (position == 0) {
             return WEATHER;
-        }else {
+        } else {
             return HISTORY;
         }
     }
@@ -45,7 +44,7 @@ public class TodayRecyclerViewAdapter extends  RecyclerView.Adapter<TodayRecycle
             holder.view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent=new Intent(mcontext, WeatherDetails.class);
+                    Intent intent = new Intent(mcontext, WeatherDetails.class);
                     mcontext.startActivity(intent);
                 }
             });
@@ -57,7 +56,7 @@ public class TodayRecyclerViewAdapter extends  RecyclerView.Adapter<TodayRecycle
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        SimpleDateFormat format=new SimpleDateFormat("HH:mm发布");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm发布");
         holder.time.setText(format.format(todayWeather.getTime()));
         holder.temperature.setText(todayWeather.getData().getWendu());
         holder.location.setText(todayWeather.getCityInfo().getCity());
@@ -72,17 +71,18 @@ public class TodayRecyclerViewAdapter extends  RecyclerView.Adapter<TodayRecycle
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView location,time,temperature;
-        ImageView symbol,weather;
+        TextView location, time, temperature;
+        ImageView symbol, weather;
         View view;
+
         ViewHolder(View view) {
             super(view);
-            this.view=view;
+            this.view = view;
             location = (TextView) view.findViewById(R.id.item_today_location);
             time = (TextView) view.findViewById(R.id.item_today_time);
             temperature = (TextView) view.findViewById(R.id.item_today_temperature);
             symbol = (ImageView) view.findViewById(R.id.item_today_symbol);
-            weather= (ImageView) view.findViewById(R.id.item_today_weather);
+            weather = (ImageView) view.findViewById(R.id.item_today_weather);
         }
     }
 }

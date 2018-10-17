@@ -2,7 +2,6 @@ package com.whut.oneday.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import com.whut.oneday.R;
 import com.whut.oneday.activity.DiaryDetailActivity;
 import com.whut.oneday.entity.Diary;
-import com.whut.oneday.tools.Content;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -25,7 +23,7 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<DiaryRecycler
 
     public DiaryRecyclerViewAdapter(List<Diary> list, Context context) {
         this.list = list;
-        this.context=context;
+        this.context = context;
     }
 
     @Override
@@ -50,8 +48,8 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<DiaryRecycler
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(context, DiaryDetailActivity.class);
-                intent.putExtra("diary_detail",list.get(position));
+                Intent intent = new Intent(context, DiaryDetailActivity.class);
+                intent.putExtra("diary_detail", list.get(position));
                 context.startActivity(intent);
             }
         });
@@ -63,18 +61,18 @@ public class DiaryRecyclerViewAdapter extends RecyclerView.Adapter<DiaryRecycler
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView createstamp,moodText,weatherText;
-        ImageView moodIcon,weatherIcon;
+        TextView createstamp, moodText, weatherText;
+        ImageView moodIcon, weatherIcon;
         View view;
 
         ViewHolder(View view) {
             super(view);
             this.view = view;
             createstamp = (TextView) view.findViewById(R.id.item_diary_createstamp);
-            moodText=(TextView)view.findViewById(R.id.item_diary_mood_text);
-            moodIcon=(ImageView)view.findViewById(R.id.item_diary_mood_icon);
-            weatherText=(TextView)view.findViewById(R.id.item_diary_weather_text);
-            weatherIcon=(ImageView)view.findViewById(R.id.item_diary_weather_icon);
+            moodText = (TextView) view.findViewById(R.id.item_diary_mood_text);
+            moodIcon = (ImageView) view.findViewById(R.id.item_diary_mood_icon);
+            weatherText = (TextView) view.findViewById(R.id.item_diary_weather_text);
+            weatherIcon = (ImageView) view.findViewById(R.id.item_diary_weather_icon);
         }
     }
 }

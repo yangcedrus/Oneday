@@ -7,7 +7,6 @@ import java.util.Map;
  * 公共类，用于返回json对象
  *
  * @author Administrator
- *
  */
 public class Msg {
 

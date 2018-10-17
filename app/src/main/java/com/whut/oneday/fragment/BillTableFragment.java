@@ -31,7 +31,6 @@ import com.whut.oneday.entity.Bill;
 import com.whut.oneday.tools.Content;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -72,7 +71,7 @@ public class BillTableFragment extends Fragment {
         billPieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry e, Highlight h) {
-                String name="";
+                String name = "";
                 float x = e.getX();
                 float y = e.getY();
                 Object o = e.getData();
@@ -87,7 +86,7 @@ public class BillTableFragment extends Fragment {
                     if (entry != e) {
                         angle += entry.getY();
                     } else {
-                        name=entry.getLabel();
+                        name = entry.getLabel();
                         angle += entry.getY() / 2;
                         break;
                     }
@@ -100,9 +99,9 @@ public class BillTableFragment extends Fragment {
                     angle = -angle;
                 }
                 float to = angle + 90;
-                if(abs(from-to)>180)
-                    from=from-360;
-                if (from != to){
+                if (abs(from - to) > 180)
+                    from = from - 360;
+                if (from != to) {
                     billPieChart.spin(1000, from, to, Easing.EasingOption.EaseInCubic);
                     changeData(name);
                 }
@@ -136,16 +135,16 @@ public class BillTableFragment extends Fragment {
     //初始化数据函数
     private void initData() {
         Bill bill;
-        if(list==null)
+        if (list == null)
             list = new ArrayList<>();
         list.clear();
-        Integer year=BillFragment.getYear();
-        Integer month=BillFragment.getMonth();
-        list= Content.billMap.get(year*100+month);
+        Integer year = BillFragment.getYear();
+        Integer month = BillFragment.getMonth();
+        list = Content.billMap.get(year * 100 + month);
         //本地获取不到信息,先初始化
-        if(list.size()==0){
+        if (list.size() == 0) {
             for (int i = 0; i < 7; i++) {
-                bill = new Bill(1000000,1000000,"全部", false,1, 10.00,"");
+                bill = new Bill(1000000, 1000000, "全部", false, 1, 10.00, "");
                 list.add(bill);
             }
         }
@@ -155,7 +154,7 @@ public class BillTableFragment extends Fragment {
         Bill bill;
         list.clear();
         for (int i = 0; i < 7; i++) {
-            bill = new Bill(1000000,1000000,"全部", false,1, 10.00,"");
+            bill = new Bill(1000000, 1000000, "全部", false, 1, 10.00, "");
             list.add(bill);
         }
         mAdapter.notifyDataSetChanged();

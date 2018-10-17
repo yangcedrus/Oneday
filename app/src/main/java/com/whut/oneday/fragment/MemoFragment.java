@@ -60,7 +60,7 @@ public class MemoFragment extends Fragment {
         initdata();
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new MemoRecyclerViewAdapter(memo,getContext());
+        adapter = new MemoRecyclerViewAdapter(memo, getContext());
         recyclerView.setAdapter(adapter);
     }
 

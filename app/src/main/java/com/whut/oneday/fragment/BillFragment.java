@@ -181,7 +181,7 @@ public class BillFragment extends Fragment {
         DecimalFormat df = new DecimalFormat("0.00");
         billIncome.setText(df.format(in));
         billExpenditure.setText(df.format(out));
-        
+
         //设置“记一笔”按钮响应
         billAddOne.setOnClickListener(new View.OnClickListener() {
             @Override

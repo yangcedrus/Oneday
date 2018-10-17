@@ -62,9 +62,9 @@ public class EditDiaryActivity extends BaseActivity {
 
     private boolean saveFlag = false;   //true为已经点击保存，false为未点击保存
     private static final int DIARY_REQUEST = 101;//定义请求码常量
-    private int screenWidth,screenHeight;   //屏幕宽高
-    private ProgressDialog insertDialog,loadingDialog;
-    private Subscription subsInsert,subsLoading;
+    private int screenWidth, screenHeight;   //屏幕宽高
+    private ProgressDialog insertDialog, loadingDialog;
+    private Subscription subsInsert, subsLoading;
     private Diary diary;
 
     @Override
@@ -78,13 +78,13 @@ public class EditDiaryActivity extends BaseActivity {
 
         //设置页面数据
         initData();
-        if(diary!=null)
+        if (diary != null)
             showDataSync(diary.getBody());
 
         //设置supportActionbar
         editDiaryToolbar.setTitle("");
         String s;
-        if (diary==null)
+        if (diary == null)
             s = "新建日记";
         else
             s = "编辑日记";
@@ -103,21 +103,21 @@ public class EditDiaryActivity extends BaseActivity {
     /**
      * 初始化页面视图数据
      */
-    private void initData(){
+    private void initData() {
         //获取传递的diary信息
-        Intent intent=getIntent();
-        if (intent==null){
+        Intent intent = getIntent();
+        if (intent == null) {
             return;
         }
-        diary=(Diary)intent.getParcelableExtra("edit_diary");
+        diary = (Diary) intent.getParcelableExtra("edit_diary");
 
         // TODO: 2018/10/16 添加心情以及天气图片，此处处理
-        if(diary==null){
-            Date date=new Date();
-            SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
-            String datestring=format.format(date);
+        if (diary == null) {
+            Date date = new Date();
+            SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+            String datestring = format.format(date);
             editDiaryDate.setText(datestring);
-        }else
+        } else
             editDiaryDate.setText(new SimpleDateFormat("yyyy/MM/dd").format(diary.getCreatestamp()));
 
         //图片插入进程框
@@ -126,7 +126,7 @@ public class EditDiaryActivity extends BaseActivity {
         insertDialog.setCanceledOnTouchOutside(false);
 
         //读取数据进程框
-        loadingDialog=new ProgressDialog(this);
+        loadingDialog = new ProgressDialog(this);
         loadingDialog.setMessage("读取中...");
         loadingDialog.setCanceledOnTouchOutside(false);
 
@@ -140,7 +140,7 @@ public class EditDiaryActivity extends BaseActivity {
      */
     @Override
     public void onBackPressed() {
-        if(!saveFlag)
+        if (!saveFlag)
             showDialog();
         else
             finish();
@@ -188,7 +188,7 @@ public class EditDiaryActivity extends BaseActivity {
                 saveDiaryData();
                 break;
             case android.R.id.home:
-                if(!saveFlag)
+                if (!saveFlag)
                     showDialog();
                 else {
                     finish();
@@ -222,20 +222,21 @@ public class EditDiaryActivity extends BaseActivity {
 
     /**
      * 异步方式插入图片
+     *
      * @param data 图片选择器返回的数据
      */
     private void insertImagesSync(final Intent data) {
         insertDialog.show();
 
-        subsInsert= Observable.create(new Observable.OnSubscribe<String>() {
+        subsInsert = Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
-                try{
+                try {
                     editDiaryBody.measure(0, 0);
                     List<Uri> mSelected = Matisse.obtainResult(data);
                     // 可以同时插入多张图片
                     for (Uri imageUri : mSelected) {
-                        String imagePath = SDCardUtil.getFilePathFromUri(EditDiaryActivity.this,  imageUri);
+                        String imagePath = SDCardUtil.getFilePathFromUri(EditDiaryActivity.this, imageUri);
                         //Log.e(TAG, "###path=" + imagePath);
                         Bitmap bitmap = ImageUtils.getSmallBitmap(imagePath, screenWidth, screenHeight);//压缩图片
                         //bitmap = BitmapFactory.decodeFile(imagePath);
@@ -248,7 +249,7 @@ public class EditDiaryActivity extends BaseActivity {
                     //subscriber.onNext("http://p695w3yko.bkt.clouddn.com/18-5-5/30271511.jpg");
 
                     subscriber.onCompleted();
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                     subscriber.onError(e);
                 }
@@ -263,7 +264,7 @@ public class EditDiaryActivity extends BaseActivity {
                         if (insertDialog != null && insertDialog.isShowing()) {
                             insertDialog.dismiss();
                         }
-                        showToast("图片插入成功",false);
+                        showToast("图片插入成功", false);
                     }
 
                     @Override
@@ -271,7 +272,7 @@ public class EditDiaryActivity extends BaseActivity {
                         if (insertDialog != null && insertDialog.isShowing()) {
                             insertDialog.dismiss();
                         }
-                        showToast("图片插入失败:"+e.getMessage(),false);
+                        showToast("图片插入失败:" + e.getMessage(), false);
                     }
 
                     @Override
@@ -284,13 +285,13 @@ public class EditDiaryActivity extends BaseActivity {
     /**
      * 保存日记信息
      */
-    private void saveDiaryData(){
+    private void saveDiaryData() {
         //如果是新建，则添加创建时间
-        if(diary==null){
-            diary=new Diary();
+        if (diary == null) {
+            diary = new Diary();
             diary.setCreatestamp(new Timestamp(System.currentTimeMillis()));
-            SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
-            String dateString=format.format(diary.getCreatestamp());
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String dateString = format.format(diary.getCreatestamp());
             diary.setDate(dateString);
         }
         //否则，只更新以下信息
@@ -301,7 +302,7 @@ public class EditDiaryActivity extends BaseActivity {
         // TODO: 2018/10/16 保存日记，数据库/服务器
 
 
-        saveFlag=true;
+        saveFlag = true;
     }
 
     /**
@@ -323,9 +324,10 @@ public class EditDiaryActivity extends BaseActivity {
 
     /**
      * 异步方式显示数据
+     *
      * @param html
      */
-    private void showDataSync(final String html){
+    private void showDataSync(final String html) {
 
         subsLoading = Observable.create(new Observable.OnSubscribe<String>() {
             @Override
@@ -339,7 +341,7 @@ public class EditDiaryActivity extends BaseActivity {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onCompleted() {
-                        if (loadingDialog != null){
+                        if (loadingDialog != null) {
                             loadingDialog.dismiss();
                         }
                         //在图片全部插入完毕后，再插入一个EditText，防止最后一张图片后无法插入文字
@@ -348,10 +350,10 @@ public class EditDiaryActivity extends BaseActivity {
 
                     @Override
                     public void onError(Throwable e) {
-                        if (loadingDialog != null){
+                        if (loadingDialog != null) {
                             loadingDialog.dismiss();
                         }
-                        showToast("解析错误：图片不存在或已损坏",false);
+                        showToast("解析错误：图片不存在或已损坏", false);
                     }
 
                     @Override
@@ -373,14 +375,14 @@ public class EditDiaryActivity extends BaseActivity {
      * 显示数据
      */
     protected void showEditData(Subscriber<? super String> subscriber, String html) {
-        try{
+        try {
             List<String> textList = StringUtils.cutStringByImgTag(html);
             for (int i = 0; i < textList.size(); i++) {
                 String text = textList.get(i);
                 subscriber.onNext(text);
             }
             subscriber.onCompleted();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             subscriber.onError(e);
         }
@@ -389,7 +391,7 @@ public class EditDiaryActivity extends BaseActivity {
     /**
      * 设置退出时对话框
      */
-    private void showDialog(){
+    private void showDialog() {
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("退出")//设置对话框的标题
                 .setMessage("您还没有保存，是否要保存内容")//设置对话框的内容
@@ -397,7 +399,7 @@ public class EditDiaryActivity extends BaseActivity {
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        showToast("点击了取消",false);
+                        showToast("点击了取消", false);
                         dialog.dismiss();
                         finish();
                     }
@@ -405,7 +407,7 @@ public class EditDiaryActivity extends BaseActivity {
                 .setPositiveButton("保存", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        showToast("点击了保存",false);
+                        showToast("点击了保存", false);
                         dialog.dismiss();
                         saveDiaryData();
                         finish();

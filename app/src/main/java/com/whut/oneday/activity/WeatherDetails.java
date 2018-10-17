@@ -19,7 +19,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
@@ -65,8 +64,8 @@ public class WeatherDetails extends BaseActivity {
         //设置返回按钮
         weatherDetailsToolbar.setTitle("");
         setSupportActionBar(weatherDetailsToolbar);
-        ActionBar actionBar=getSupportActionBar();
-        if(actionBar!=null){
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
             //设置左上角图标是否可点击
             actionBar.setHomeButtonEnabled(true);
             //左上角加上一个返回图标
@@ -74,14 +73,14 @@ public class WeatherDetails extends BaseActivity {
         }
 
         // FIXME: 2018/10/17 修改背景图片
-        RequestOptions myOption=new RequestOptions().fitCenter();
+        RequestOptions myOption = new RequestOptions().fitCenter();
         Glide.with(this)
                 .load("https://api.i-meto.com/bing?color=White")
                 .apply(myOption)
                 .into(new SimpleTarget<Drawable>() {
                     @Override
                     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-                        resource=getWhiteImage(resource);
+                        resource = getWhiteImage(resource);
                         resource.setAlpha(180);
                         weatherDetailsBackground.setBackground(resource);
                     }
@@ -147,15 +146,15 @@ public class WeatherDetails extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.weather_details,menu);
+        getMenuInflater().inflate(R.menu.weather_details, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.weather_details_addCity:
-                showToast("添加城市",false);
+                showToast("添加城市", false);
                 break;
             case android.R.id.home:
                 finish();
@@ -169,7 +168,7 @@ public class WeatherDetails extends BaseActivity {
     public Drawable getWhiteImage(Drawable drawable) {
         BitmapDrawable bd = (BitmapDrawable) drawable;
 
-        Bitmap bm= bd.getBitmap();
+        Bitmap bm = bd.getBitmap();
         Bitmap bmp = Bitmap.createBitmap(bm.getWidth(), bm.getHeight(), Bitmap.Config.RGB_565);
         Paint paint = new Paint();
         paint.setAntiAlias(true);

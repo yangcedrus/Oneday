@@ -22,6 +22,7 @@ public class CommonUtil {
 
     /**
      * 判断应用是否处于后台
+     *
      * @param context
      * @return
      */
@@ -39,13 +40,14 @@ public class CommonUtil {
 
     /**
      * 判断是否锁屏
+     *
      * @param context
      * @return
      */
-    public static boolean isLockScreeen(Context context){
+    public static boolean isLockScreeen(Context context) {
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         boolean isScreenOn = pm.isScreenOn();//如果为true，则表示屏幕“亮”了，否则屏幕“暗”了。
-        if (isScreenOn){
+        if (isScreenOn) {
             return false;
         } else {
             return true;
@@ -55,7 +57,7 @@ public class CommonUtil {
     /**
      * 分享文字笔记
      */
-    public static void shareText(Context context, String content){
+    public static void shareText(Context context, String content) {
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_TEXT, content);
@@ -66,6 +68,7 @@ public class CommonUtil {
 
     /**
      * 分享单张图片
+     *
      * @param context
      * @param imagePath
      */
@@ -84,14 +87,10 @@ public class CommonUtil {
     /**
      * 分享功能
      *
-     * @param context
-     *            上下文
-     * @param msgTitle
-     *            消息标题
-     * @param msgText
-     *            消息内容
-     * @param imgPath
-     *            图片路径，不分享图片则传null
+     * @param context  上下文
+     * @param msgTitle 消息标题
+     * @param msgText  消息内容
+     * @param imgPath  图片路径，不分享图片则传null
      */
     public static void shareTextAndImage(Context context, String msgTitle, String msgText, String imgPath) {
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -113,11 +112,11 @@ public class CommonUtil {
 
     /**
      * 获得屏幕宽度
+     *
      * @param context
      * @return
      */
-    public static int getScreenWidth(Context context)
-    {
+    public static int getScreenWidth(Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
@@ -126,6 +125,7 @@ public class CommonUtil {
 
     /**
      * 获得屏幕高度
+     *
      * @param context
      * @return
      */

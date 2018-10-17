@@ -57,7 +57,7 @@ public class DiaryFragment extends Fragment {
         initData();
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new DiaryRecyclerViewAdapter(diary,getContext());
+        adapter = new DiaryRecyclerViewAdapter(diary, getContext());
         recyclerView.setAdapter(adapter);
 
     }
@@ -71,7 +71,7 @@ public class DiaryFragment extends Fragment {
         diaryAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getContext(), EditDiaryActivity.class);
+                Intent intent = new Intent(getContext(), EditDiaryActivity.class);
                 startActivity(intent);
             }
         });
@@ -82,14 +82,14 @@ public class DiaryFragment extends Fragment {
         }
         for (int i = 1; i < 10; i++) {
             Diary temp = new Diary();
-            String s=i+"<img src=\"/storage/emulated/0/XRichText/1539680220390-\"/>it's nice to sleep.<img src=\"/storage/emulated/0/XRichText/1539680363764-\"/>Ahhhhhhhhhhhhhhhhhhh!";
+            String s = i + "<img src=\"/storage/emulated/0/XRichText/1539680220390-\"/>it's nice to sleep.<img src=\"/storage/emulated/0/XRichText/1539680363764-\"/>Ahhhhhhhhhhhhhhhhhhh!";
             temp.setDiaryID(1);
             temp.setUserID(1);
             temp.setBody(s);
             temp.setMood("开心");
             temp.setWeather("晴");
             temp.setCreatestamp(new Timestamp(System.currentTimeMillis()));
-            SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             temp.setDate(format.format(temp.getCreatestamp()));
             diary.add(temp);
         }
