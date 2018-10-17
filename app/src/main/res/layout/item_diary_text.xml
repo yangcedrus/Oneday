@@ -3,21 +3,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="80dp">
 
     <TextView
         android:id="@+id/item_diary_createstamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="289dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textAlignment="textStart"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:textSize="@dimen/little_size"
+        android:text="2018年02月02日"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <ImageView
+        android:id="@+id/item_diary_weather_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_eye_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/item_diary_createstamp"
+        app:layout_constraintTop_toBottomOf="@id/item_diary_createstamp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/item_diary_weather_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="晴"
+        app:layout_constraintBottom_toBottomOf="@+id/item_diary_weather_icon"
+        app:layout_constraintStart_toEndOf="@id/item_diary_weather_icon"
+        app:layout_constraintTop_toTopOf="@+id/item_diary_weather_icon" />
+
+    <ImageView
+        android:id="@+id/item_diary_mood_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_eye_grey"
+        app:layout_constraintBottom_toBottomOf="@+id/item_diary_weather_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/item_diary_weather_icon" />
+
+    <TextView
+        android:id="@+id/item_diary_mood_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="开心"
+        app:layout_constraintBottom_toBottomOf="@+id/item_diary_mood_icon"
+        app:layout_constraintStart_toEndOf="@id/item_diary_mood_icon"
+        app:layout_constraintTop_toTopOf="@+id/item_diary_mood_icon" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
 
 </android.support.constraint.ConstraintLayout>

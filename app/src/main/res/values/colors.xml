@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="theme_color_yellow">#FACC01</color>
+    <color name="theme_color_blue">#3F51B5</color>
+    <color name="theme_color_grey">#707070</color>
+    <color name="theme_color_orange">#ED6A2C</color>
+
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
@@ -7,6 +13,7 @@
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FACC01</color>
     <color name="black">#000000</color>
+    <color name="grey">#707070</color>
 
     <color name="tab_checked">#ED6A2C</color>
     <color name="tab_unchecked">#757575</color>
@@ -14,7 +21,7 @@
     <color name="transparent">#00000000</color>
 
     <!--月份选择器-->
-    <color name="month_picker_month_button_background_color">@color/yellow</color>
+    <color name="month_picker_month_button_background_color">@color/theme_color_yellow</color>
     <color name="month_picker_month_button_active_background_color">@color/white</color>
     <color name="month_picker_month_button_text_color">@color/white</color>
     <color name="month_picker_pick_button_background">@color/transparent</color>

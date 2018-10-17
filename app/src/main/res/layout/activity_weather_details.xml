@@ -4,236 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/weather_details_background"
     tools:context=".activity.WeatherDetails">
 
-    <TextView
-        android:id="@+id/weather_details_location"
-        android:layout_width="80dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/weather_details_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:fitsSystemWindows="true"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/weather_details_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/weather_details_points"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weather_details_toolbar" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/weather_details_weather_channel"-->
+        <!--android:layout_width="24dp"-->
+        <!--android:layout_height="24dp"-->
+        <!--android:background="@color/yellow"-->
+        <!--app:layout_constraintBottom_toBottomOf="@id/weather_details_points"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/weather_details_points"-->
+        <!--app:layout_constraintHorizontal_bias="0.2"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/weather_details_points" />-->
+
+    <LinearLayout
+        android:id="@+id/weather_details_points"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:gravity="center"
-        android:text="武汉"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/weather_details_weather"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="晴"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_location" />
-
-    <TextView
-        android:id="@+id/weather_details_temperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="32"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather" />
-
-    <TextView
-        android:id="@+id/weather_details_day1"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:text="星期一"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_temperature" />
-
-    <TextView
-        android:id="@+id/weather_details_day2"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:text="星期二"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_day1" />
-
-    <TextView
-        android:id="@+id/weather_details_day3"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:text="星期三"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_day2" />
-
-    <TextView
-        android:id="@+id/weather_details_day4"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:text="星期四"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_day3" />
-
-    <ImageView
-        android:id="@+id/weather_details_weather1"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/holo_blue_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_temperature" />
-
-    <ImageView
-        android:id="@+id/weather_details_weather2"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/holo_blue_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather1" />
-
-    <ImageView
-        android:id="@+id/weather_details_weather3"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/holo_blue_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather2" />
-
-    <ImageView
-        android:id="@+id/weather_details_weather4"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/holo_blue_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather3" />
-
-    <TextView
-        android:id="@+id/weather_details_weather1_max"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:text="35"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_details_weather1"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_temperature" />
-
-    <TextView
-        android:id="@+id/weather_details_weather1_min"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="26"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_details_weather1_max"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_temperature" />
-
-    <TextView
-        android:id="@+id/weather_details_weather2_max"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:text="35"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_details_weather2"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather1" />
-
-    <TextView
-        android:id="@+id/weather_details_weather2_min"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="26"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_details_weather2_max"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather1" />
-
-    <TextView
-        android:id="@+id/weather_details_weather3_max"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:text="35"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_details_weather3"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather2" />
-
-    <TextView
-        android:id="@+id/weather_details_weather3_min"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="26"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_details_weather3_max"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather2" />
-
-    <TextView
-        android:id="@+id/weather_details_weather4_max"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
-        android:text="35"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_details_weather4"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather3" />
-
-    <TextView
-        android:id="@+id/weather_details_weather4_min"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="26"
-        android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/weather_details_weather4_max"
-        app:layout_constraintTop_toBottomOf="@+id/weather_details_weather3" />
-
-    <ImageView
-        android:id="@+id/weather_details_weather_channel"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="64dp"
-        android:layout_marginStart="64dp"
-        android:background="@color/yellow"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weather_details_viewPager" />
 
-    <ImageView
-        android:id="@+id/weather_details_weather_list"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="64dp"
-        android:layout_marginEnd="64dp"
-        android:background="@color/yellow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <!--<ImageView-->
+        <!--android:id="@+id/weather_details_weather_list"-->
+        <!--android:layout_width="24dp"-->
+        <!--android:layout_height="24dp"-->
+        <!--android:background="@color/yellow"-->
+        <!--app:layout_constraintBottom_toBottomOf="@id/weather_details_points"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.8"-->
+        <!--app:layout_constraintStart_toEndOf="@+id/weather_details_points"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/weather_details_points" />-->
 </android.support.constraint.ConstraintLayout>

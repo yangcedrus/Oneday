@@ -121,7 +121,6 @@ public class Diary implements Parcelable{
 
 		@Override
 		public Diary createFromParcel(Parcel source) {
-			// TODO Auto-generated method stub
 			Diary diary=new Diary();
 			diary.diaryID=source.readInt();
 			diary.userID=source.readInt();
@@ -135,7 +134,6 @@ public class Diary implements Parcelable{
 
 		@Override
 		public Diary[] newArray(int size) {
-			// TODO Auto-generated method stub
 			return new Diary[size];
 		}
 	};

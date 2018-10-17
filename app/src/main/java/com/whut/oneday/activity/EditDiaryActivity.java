@@ -70,7 +70,7 @@ public class EditDiaryActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editor_diary);
+        setContentView(R.layout.activity_edit_diary);
         ButterKnife.inject(this);
 
         //隐藏状态栏
@@ -104,11 +104,21 @@ public class EditDiaryActivity extends BaseActivity {
      * 初始化页面视图数据
      */
     private void initData(){
+        //获取传递的diary信息
+        Intent intent=getIntent();
+        if (intent==null){
+            return;
+        }
+        diary=(Diary)intent.getParcelableExtra("edit_diary");
+
         // TODO: 2018/10/16 添加心情以及天气图片，此处处理
-        Date date=new Date();
-        SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
-        String datestring=format.format(date);
-        editDiaryDate.setText(datestring);
+        if(diary==null){
+            Date date=new Date();
+            SimpleDateFormat format=new SimpleDateFormat("yyyy/MM/dd");
+            String datestring=format.format(date);
+            editDiaryDate.setText(datestring);
+        }else
+            editDiaryDate.setText(new SimpleDateFormat("yyyy/MM/dd").format(diary.getCreatestamp()));
 
         //图片插入进程框
         insertDialog = new ProgressDialog(this);
@@ -123,13 +133,6 @@ public class EditDiaryActivity extends BaseActivity {
         //测量屏幕宽度
         screenWidth = CommonUtil.getScreenWidth(this);
         screenHeight = CommonUtil.getScreenHeight(this);
-
-        //获取传递的diary信息
-        Intent intent=getIntent();
-        if (intent==null){
-            return;
-        }
-        diary=(Diary)intent.getParcelableExtra("edit_diary");
     }
 
     /**
@@ -139,6 +142,8 @@ public class EditDiaryActivity extends BaseActivity {
     public void onBackPressed() {
         if(!saveFlag)
             showDialog();
+        else
+            finish();
         super.onBackPressed();
     }
 
@@ -185,6 +190,9 @@ public class EditDiaryActivity extends BaseActivity {
             case android.R.id.home:
                 if(!saveFlag)
                     showDialog();
+                else {
+                    finish();
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -10,7 +10,7 @@
         android:id="@+id/edit_diary_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/yellow"
+        android:background="@color/theme_color_yellow"
         android:fitsSystemWindows="true"
         app:layout_constraintBottom_toTopOf="@+id/edit_diary_info"
         app:layout_constraintEnd_toEndOf="parent"

@@ -11,16 +11,19 @@ import android.widget.TextView;
 
 import com.whut.oneday.R;
 import com.whut.oneday.activity.WeatherDetails;
-import com.whut.oneday.item.TodayWeather;
+import com.whut.oneday.weatherUtils.TodayWeather;
+import com.whut.oneday.weatherUtils.WeatherMsg;
+
+import java.text.SimpleDateFormat;
 
 public class TodayRecyclerViewAdapter extends  RecyclerView.Adapter<TodayRecyclerViewAdapter.ViewHolder>{
 
     final static private int WEATHER=0x00000001;
     final static private int HISTORY=0x00000002;
     private Context mcontext;
-    private static TodayWeather todayWeather;
+    private static WeatherMsg todayWeather;
 
-    public TodayRecyclerViewAdapter(TodayWeather todayWeather,Context mcontext){
+    public TodayRecyclerViewAdapter(WeatherMsg todayWeather,Context mcontext){
         this.todayWeather=todayWeather;
         this.mcontext=mcontext;
     }
@@ -54,9 +57,12 @@ public class TodayRecyclerViewAdapter extends  RecyclerView.Adapter<TodayRecycle
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.time.setText(todayWeather.getTime());
-        holder.location.setText(todayWeather.getLocation());
-        holder.temperature.setText(todayWeather.getTemperature());
+        SimpleDateFormat format=new SimpleDateFormat("HH:mm发布");
+        holder.time.setText(format.format(todayWeather.getTime()));
+        holder.temperature.setText(todayWeather.getData().getWendu());
+        holder.location.setText(todayWeather.getCityInfo().getCity());
+        // FIXME: 2018/10/17 图片换源
+        holder.weather.setImageDrawable(mcontext.getDrawable(R.drawable.ic_eye_grey));
     }
 
     @Override

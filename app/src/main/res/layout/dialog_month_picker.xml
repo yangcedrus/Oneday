@@ -15,7 +15,7 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:textStyle="bold"
-        android:background="@color/yellow"
+        android:background="@color/theme_color_yellow"
         android:textColor="@color/white" />
 
     <cn.forward.androids.views.StringScrollPicker

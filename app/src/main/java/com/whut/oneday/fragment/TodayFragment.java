@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 
 import com.whut.oneday.R;
 import com.whut.oneday.adapter.TodayRecyclerViewAdapter;
-import com.whut.oneday.item.TodayWeather;
+import com.whut.oneday.tools.Content;
+import com.whut.oneday.weatherUtils.WeatherMsg;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -25,13 +26,13 @@ public class TodayFragment extends Fragment {
     RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private TodayRecyclerViewAdapter adapter;
-    private TodayWeather todayWeather;
+    private WeatherMsg todayWeather;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_today, container, false);
+        View view = inflater.inflate(R.layout.fragment_today, container, false);
         ButterKnife.inject(this, view);
         return view;
     }
@@ -47,16 +48,15 @@ public class TodayFragment extends Fragment {
         initWeather();
         linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new TodayRecyclerViewAdapter(todayWeather,getContext());
+        adapter = new TodayRecyclerViewAdapter(todayWeather, getContext());
         recyclerView.setAdapter(adapter);
-
     }
 
     private void reFresh() {
         adapter.notifyDataSetChanged();
     }
 
-    private void initWeather(){
-        todayWeather=new TodayWeather("下午1：30","武汉","37",false,0);
+    private void initWeather() {
+        todayWeather = Content.localWeatherMsg.get("天津市");
     }
 }

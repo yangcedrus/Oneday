@@ -1,4 +1,4 @@
-package com.whut.oneday.item;
+package com.whut.oneday.weatherUtils;
 
 public class TodayWeather {
     private String time;

@@ -33,11 +33,6 @@ public class BillDetailFragment extends Fragment {
     List<Bill> list;
     BillDescAdapter mAdapter;
 
-    public BillDetailFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

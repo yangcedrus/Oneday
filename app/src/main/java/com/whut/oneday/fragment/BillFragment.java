@@ -52,11 +52,6 @@ public class BillFragment extends Fragment {
     private List<Bill> list;
     private static Integer selectYear, selectMonth;
 
-    public BillFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -85,11 +80,12 @@ public class BillFragment extends Fragment {
         list.add(new BillTableFragment());
         viewPagerAdapter.setList(list);
 
+        billTabDetail.setTextColor(getResources().getColor(R.color.theme_color_yellow));
         billTabDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //修改文字颜色
-                billTabDetail.setTextColor(getResources().getColor(R.color.yellow));
+                billTabDetail.setTextColor(getResources().getColor(R.color.theme_color_yellow));
                 billTabTable.setTextColor(getResources().getColor(R.color.black));
                 billViewPager.setCurrentItem(0);
             }
@@ -100,7 +96,7 @@ public class BillFragment extends Fragment {
             public void onClick(View view) {
                 //修改文字颜色
                 billTabDetail.setTextColor(getResources().getColor(R.color.black));
-                billTabTable.setTextColor(getResources().getColor(R.color.yellow));
+                billTabTable.setTextColor(getResources().getColor(R.color.theme_color_yellow));
                 billViewPager.setCurrentItem(1);
             }
         });

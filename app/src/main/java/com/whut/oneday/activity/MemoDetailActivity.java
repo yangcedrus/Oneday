@@ -6,16 +6,14 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sendtion.xrichtext.RichTextView;
 import com.whut.oneday.BaseActivity;
 import com.whut.oneday.R;
-import com.whut.oneday.entity.Diary;
+import com.whut.oneday.entity.Memo;
 import com.whut.oneday.tools.StringUtils;
 
 import java.text.SimpleDateFormat;
@@ -30,26 +28,20 @@ import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class DiaryDetailActivity extends BaseActivity {
+public class MemoDetailActivity extends BaseActivity {
 
-    @InjectView(R.id.detail_diary_title)
-    TextView detailDiaryTitle;
-    @InjectView(R.id.detail_diary_toolbar)
-    Toolbar detailDiaryToolbar;
-    @InjectView(R.id.detail_diary_date)
-    TextView detailDiaryDate;
-    @InjectView(R.id.detail_diary_weather_icon)
-    ImageView detailDiaryWeatherIcon;
-    @InjectView(R.id.detail_diary_weather_text)
-    TextView detailDiaryWeatherText;
-    @InjectView(R.id.detail_diary_mood_icon)
-    ImageView detailDiaryMoodIcon;
-    @InjectView(R.id.detail_diary_mood_text)
-    TextView detailDiaryMoodText;
-    @InjectView(R.id.detail_diary_body)
-    RichTextView detailDiaryBody;
+    @InjectView(R.id.memo_details_title)
+    TextView memoDetailsTitle;
+    @InjectView(R.id.memo_details_toolbar)
+    Toolbar memoDetailsToolbar;
+    @InjectView(R.id.memo_details_name)
+    TextView memoDetailsName;
+    @InjectView(R.id.memo_details_time)
+    TextView memoDetailsTime;
+    @InjectView(R.id.memo_details_body)
+    RichTextView memoDetailsBody;
 
-    private Diary diary;
+    private Memo memo;
 
     private ProgressDialog loadingDialog;
     private Subscription subsLoading;
@@ -57,16 +49,16 @@ public class DiaryDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diary_detail);
+        setContentView(R.layout.activity_memo_detail);
         ButterKnife.inject(this);
 
         //隐藏状态栏
         hideStatus();
 
         //设置supportActionbar
-        detailDiaryToolbar.setTitle("");
-        detailDiaryTitle.setText("日记详情");
-        setSupportActionBar(detailDiaryToolbar);
+        memoDetailsToolbar.setTitle("");
+        memoDetailsTitle.setText("备忘录详情");
+        setSupportActionBar(memoDetailsToolbar);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -80,8 +72,8 @@ public class DiaryDetailActivity extends BaseActivity {
         initData();
 
         //显示页面数据
-        if(diary!=null)
-            showDataSync(diary.getBody());
+        if(memo!=null)
+            showDataSync(memo.getBody());
         else
             showDataSync("无内容显示");
     }
@@ -94,15 +86,13 @@ public class DiaryDetailActivity extends BaseActivity {
         Intent intent=getIntent();
         if(intent==null)
             return;
-        diary=intent.getParcelableExtra("diary_detail");
+        memo=intent.getParcelableExtra("memo_detail");
 
-        if(diary==null){
+        if(memo==null){
             return;
         }
-        // FIXME: 2018/10/16 设置页面信息，缺少图片
-        detailDiaryMoodText.setText(diary.getMood());
-        detailDiaryWeatherText.setText(diary.getWeather());
-        detailDiaryDate.setText(diary.getDate());
+        memoDetailsName.setText(memo.getTitle());
+        memoDetailsTime.setText(new SimpleDateFormat("yyyy/MM/dd").format(memo.getCreatestamp()));
 
         loadingDialog = new ProgressDialog(this);
         loadingDialog.setMessage("数据加载中...");
@@ -125,8 +115,8 @@ public class DiaryDetailActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.detail_diary_edit:
-                Intent intent=new Intent(DiaryDetailActivity.this,EditDiaryActivity.class);
-                intent.putExtra("edit_diary",diary);
+                Intent intent=new Intent(MemoDetailActivity.this,EditMemoActivity.class);
+                intent.putExtra("edit_memo",memo);
                 startActivity(intent);
                 finish();
                 break;
@@ -173,9 +163,9 @@ public class DiaryDetailActivity extends BaseActivity {
                         if (text.contains("<img") && text.contains("src=")) {
                             //imagePath可能是本地路径，也可能是网络地址
                             String imagePath = StringUtils.getImgSrc(text);
-                            detailDiaryBody.addImageViewAtIndex(detailDiaryBody.getLastIndex(), imagePath);
+                            memoDetailsBody.addImageViewAtIndex(memoDetailsBody.getLastIndex(), imagePath);
                         } else {
-                            detailDiaryBody.addTextViewAtIndex(detailDiaryBody.getLastIndex(), text);
+                            memoDetailsBody.addTextViewAtIndex(memoDetailsBody.getLastIndex(), text);
                         }
                     }
                 });

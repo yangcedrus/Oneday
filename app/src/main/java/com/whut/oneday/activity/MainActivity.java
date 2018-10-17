@@ -12,13 +12,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.gson.Gson;
 import com.whut.oneday.BaseActivity;
 import com.whut.oneday.R;
 import com.whut.oneday.adapter.FragmentViewPagerAdapter;
@@ -29,10 +29,10 @@ import com.whut.oneday.fragment.TodayFragment;
 import com.whut.oneday.tools.BottomNavigationViewHelper;
 import com.whut.oneday.tools.Content;
 import com.whut.oneday.tools.NoScrollViewPager;
+import com.whut.oneday.weatherUtils.WeatherMsg;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     NavigationView drawerNavigation;
 
     private CircleImageView userIcon;
-    private TextView userName,billDays,bills;
+    private TextView userName, billDays, bills;
     private FragmentViewPagerAdapter viewPagerAdapter;
     private MenuItem menuItem;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -130,20 +130,23 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
      */
     private void initData() {
         //加载头像侧拉栏头像以及名称，记账的记录信息
-        View view= getLayoutInflater().inflate(R.layout.main_drawer_header,null);
-        userIcon= view.findViewById(R.id.main_drawer_icon);
-        userName= view.findViewById(R.id.main_drawer_name);
-        billDays=view.findViewById(R.id.main_header_tv_days);
-        bills=view.findViewById(R.id.main_header_tv_bills);
+        View view = getLayoutInflater().inflate(R.layout.main_drawer_header, null);
+        userIcon = view.findViewById(R.id.main_drawer_icon);
+        userName = view.findViewById(R.id.main_drawer_name);
+        billDays = view.findViewById(R.id.main_header_tv_days);
+        bills = view.findViewById(R.id.main_header_tv_bills);
 
-        if(Content.localUser.getIconpath()!=null){
+        billDays.setText("1");
+        bills.setText("1");
+
+        if (Content.localUser.getIconpath() != null) {
             RequestOptions myOptions = new RequestOptions().fitCenter();
             Glide.with(this)
                     .load(Content.localUser.getIconpath())
                     .apply(myOptions)
                     .into(userIcon);
         }
-        if(Content.localUser.getUsername()!=null){
+        if (Content.localUser.getUsername() != null) {
             userName.setText(Content.localUser.getUsername());
         }
 
@@ -154,7 +157,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 // FIXME: 2018/10/9 本地存储实现后取消注释
 //                if(Content.localUser==null)
 //                    return;
-                startActivity(new Intent(MainActivity.this,MyInfoActivity.class));
+                startActivity(new Intent(MainActivity.this, MyInfoActivity.class));
             }
         });
         //添加到navigation中(注：在xml中添加无法则header内容无法添加监听）
@@ -163,15 +166,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mainToolbar, R.string.drawer_open, R.string.drawer_close) {
             @Override
             public void onDrawerOpened(View drawerView) {
-                currentTitle=mainTitle.getText().toString();
+                currentTitle = mainTitle.getText().toString();
                 mainTitle.setText("");
                 super.onDrawerOpened(drawerView);
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                if(currentTitle==null){
-                    currentTitle="";
+                if (currentTitle == null) {
+                    currentTitle = "";
                 }
                 mainTitle.setText(currentTitle);
                 super.onDrawerClosed(drawerView);
@@ -215,7 +218,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 mString = "关于";
                 break;
         }
-        showToast(mString,false);
+        showToast(mString, false);
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

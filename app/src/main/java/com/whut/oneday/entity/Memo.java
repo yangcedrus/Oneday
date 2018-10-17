@@ -1,6 +1,9 @@
 package com.whut.oneday.entity;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.sql.Timestamp;
 
 /**
@@ -8,7 +11,7 @@ import java.sql.Timestamp;
  * @version 1.0
  * @created 18-9月-2018 19:06:58
  */
-public class Memo {
+public class Memo implements Parcelable{
 
 	/**
 	 * 备忘录ID
@@ -109,4 +112,42 @@ public class Memo {
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int i) {
+		dest.writeInt(memoID);
+		dest.writeInt(userID);
+		dest.writeString(title);
+		dest.writeString(body);
+		dest.writeString(createstamp.toString());
+		dest.writeString(remindstamp.toString());
+		dest.writeString(deletestamp.toString());
+		dest.writeInt(status);
+	}
+
+	public static final Parcelable.Creator<Memo> CREATOR=new Parcelable.Creator<Memo>(){
+		@Override
+		public Memo createFromParcel(Parcel source) {
+			Memo memo=new Memo();
+			memo.memoID=source.readInt();
+			memo.userID=source.readInt();
+			memo.title=source.readString();
+			memo.body=source.readString();
+			memo.createstamp=Timestamp.valueOf(source.readString());
+			memo.remindstamp=Timestamp.valueOf(source.readString());
+			memo.deletestamp=Timestamp.valueOf(source.readString());
+			memo.status=source.readInt();
+			return memo;
+		}
+
+		@Override
+		public Memo[] newArray(int i) {
+			return new Memo[i];
+		}
+	};
 }

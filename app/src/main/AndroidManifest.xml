@@ -22,10 +22,15 @@
         </activity>
         <activity android:name=".BaseActivity" />
         <activity android:name=".activity.SignUpActivity" />
-        <activity android:name=".activity.MainActivity" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activity.MyInfoActivity" />
         <activity android:name=".activity.EditDiaryActivity" />
-        <activity android:name=".activity.DiaryDetailActivity"></activity>
+        <activity android:name=".activity.DiaryDetailActivity" />
+        <activity android:name=".activity.WeatherDetails" />
+        <activity android:name=".activity.EditMemoActivity" />
+        <activity android:name=".activity.MemoDetailActivity"/>
     </application>
 
 </manifest>

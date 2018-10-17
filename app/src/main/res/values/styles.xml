@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/theme_color_yellow</item>
     </style>
 
     <!--登录页面弹出菜单-->
@@ -16,6 +16,7 @@
         <!-- 指定消失的动画xml -->
     </style>
 
+    <!--月份选择-->
     <style name="MonthPickerButton">
         <item name="android:layout_margin">@dimen/month_picker_month_button_margin</item>
         <item name="android:textSize">@dimen/month_picker_month_button_text_size</item>
@@ -43,8 +44,8 @@
 
     <style name="customTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="actionBarTheme">@style/actionBarTheme</item>
-        <item name="colorPrimary">@color/yellow</item>
-        <item name="colorPrimaryDark">@color/yellow</item>
+        <item name="colorPrimary">@color/theme_color_yellow</item>
+        <item name="colorPrimaryDark">@color/theme_color_yellow</item>
         <item name="toolbar">@style/Toolbar.Zhihu</item>
         <item name="album.dropdown.title.color">@color/zhihu_album_dropdown_title_text</item>
         <item name="album.dropdown.count.color">@color/zhihu_album_dropdown_count_text</item>

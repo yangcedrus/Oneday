@@ -51,11 +51,6 @@ public class BillTableFragment extends Fragment {
     List<Bill> list;
     BillDescAdapter mAdapter;
 
-    public BillTableFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
